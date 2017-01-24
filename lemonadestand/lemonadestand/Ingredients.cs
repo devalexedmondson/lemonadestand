@@ -6,13 +6,10 @@ using System.Threading.Tasks;
 
 namespace lemonadestand
 {
-    public class Store
+    class Ingredients
     {
-        public double price;
-        public Store()
-        {
-            
-        }
-        //set the price of the ingredients
+        private string lemon;
+        private string ice;
+        private string sugar;
     }
 }

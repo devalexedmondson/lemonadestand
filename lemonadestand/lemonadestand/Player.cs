@@ -8,13 +8,17 @@ namespace lemonadestand
 {
     public class Player
     {
-        public string name;
         public string choice;
-        public double money; 
+        public Inventory inventory;
 
         public Player()
         {
-
+            inventory = new lemonadestand.Inventory();
         }
+        public void AddIngredients(StoreSupply supplies)
+        {
+            inventory.supplies.Add(supplies);
+        }
+        //adds ingredient to the inventory list and subtracts the price of that StoreSupply from inventory of player
     }
 }

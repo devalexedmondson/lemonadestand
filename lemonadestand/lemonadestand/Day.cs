@@ -8,5 +8,6 @@ namespace lemonadestand
 {
     class Day
     {
+
     }
 }

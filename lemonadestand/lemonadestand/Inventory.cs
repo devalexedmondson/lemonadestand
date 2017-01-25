@@ -8,7 +8,7 @@ namespace lemonadestand
 {
     public class Inventory
     {
-        //inventory class in automobiles
+        //relates to inventory class in automobiles
         public double money;
         public List<StoreSupply> supplies;
 
@@ -18,5 +18,6 @@ namespace lemonadestand
             supplies = new List<StoreSupply>();
 
         }
+        //
     }
 }

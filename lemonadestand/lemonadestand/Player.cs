@@ -20,5 +20,9 @@ namespace lemonadestand
             inventory.supplies.Add(supplies);
         }
         //adds ingredient to the inventory list and subtracts the price of that StoreSupply from inventory of player
+
+        //a certain amount of ingredients will automatically create a pitcher
+
+        //
     }
 }

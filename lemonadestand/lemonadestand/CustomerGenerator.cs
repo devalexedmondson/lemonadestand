@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace lemonadestand
 {
-    class Manufacturer
+    class CustomerGenerator
     {
+        public CustomerGenerator()
+        {
+
+        }
     }
 }

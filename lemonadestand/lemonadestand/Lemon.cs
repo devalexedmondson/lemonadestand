@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace lemonadestand
 {
-    class Lemonade
+    public class Lemon : Ingredients
     {
+        public Lemon()
+        {
+
+        }
     }
 }

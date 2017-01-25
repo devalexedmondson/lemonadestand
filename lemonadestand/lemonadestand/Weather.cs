@@ -9,5 +9,9 @@ namespace lemonadestand
 {
     class Weather
     {
+        public Weather()
+        {
+
+        }
     }
 }

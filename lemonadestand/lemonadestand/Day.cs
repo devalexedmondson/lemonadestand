@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace lemonadestand
 {
-    class Day
+    public class Day
     {
+        public Day()
+        {
 
+        }
     }
 }

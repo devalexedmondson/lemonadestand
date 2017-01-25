@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace lemonadestand
 {
-    public class StoreSupply
-    { // relates to automobile class
+    public class Ingredients
+    { // relates to automobile class and holds the ingredients
         private string name;
         private int amount;
         private double price;
 
-       public StoreSupply(int amount, double price)
+       public Ingredients(int amount, double price)
         {
             this.amount = amount;
             this.price = price;

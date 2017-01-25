@@ -9,13 +9,13 @@ namespace lemonadestand
     public class Inventory
     {
         //relates to inventory class in automobiles
-        public double money;
-        public List<StoreSupply> supplies;
+        private double money = 20.00;
+        private List<Ingredients> supplies;
 
 
         public Inventory()
         {
-            supplies = new List<StoreSupply>();
+            supplies = new List<Ingredients>();
 
         }
         //

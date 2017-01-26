@@ -18,6 +18,7 @@ namespace lemonadestand
         public void RunGame()
         {
             UI.WelcomePlayer();
+            player.inventory.DisplayInventory();
         }
         
 

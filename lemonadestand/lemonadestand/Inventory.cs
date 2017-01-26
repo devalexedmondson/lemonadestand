@@ -12,14 +12,13 @@ namespace lemonadestand
         public double money = 20.00;
         public List<List<Supply>> supplies;
 
-
         public Inventory()
         {
             supplies = new List<List<Supply>>();
         }
         public void AddLemon(Lemon lemon)
         {
-            supplies[0].Add(lemon);
+           supplies[0].Add(lemon);
         }
         public void AddSugar(Sugar sugar)
         {
@@ -35,8 +34,8 @@ namespace lemonadestand
         }
         public void DisplayInventory()
         {
-            playerInventory = money + supplies;
-            return playerInventory
+            Console.WriteLine($"Your current inventory\n\n Money: {money}\n Lemons: {supplies[0].Count}\n Sugar: {supplies[1].Count}\n Ice: {supplies[2].Count}\n Cups: {supplies[3].Count}");
+            
         }
 
 

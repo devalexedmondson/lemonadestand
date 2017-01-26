@@ -15,9 +15,9 @@ namespace lemonadestand
         {
             inventory = new Inventory();
         }
-        public void BuyLemon(Supply Lemon)
+        public void BuyLemon(Supply lemon)
         {
-            //inventory.supplies.Add(lemon);
+            inventory.supplies[0].Add(lemon);
         }
 
 

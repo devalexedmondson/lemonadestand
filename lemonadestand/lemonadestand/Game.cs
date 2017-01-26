@@ -10,17 +10,20 @@ namespace lemonadestand
     {
         public Player player;
         public UserInterface UI;
+        public Day runDay;
        public Game()
         {
             player = new Player();
             UI = new UserInterface();
+            runDay= new Day();
         }
         public void RunGame()
         {
             UI.WelcomePlayer();
-            player.inventory.DisplayInventory();
-        }
-        
+            //player.inventory.DisplayInventory();
+            runDay.GetWeather();
 
+
+        }
     }   
 }

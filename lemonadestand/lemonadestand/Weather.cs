@@ -7,11 +7,69 @@ using System.Threading.Tasks;
 
 namespace lemonadestand
 {
-    class Weather
+    public class Weather
     {
+        public string temperature;
+        public string condition;
         public Weather()
         {
             //make random switch case:one for temp and one for condition
         }
+        public int GetTemp()
+        {
+            Random rnd = new Random();
+            int temperature = rnd.Next(1, 6);
+
+            switch (temperature)
+            {
+                case 1:
+                    this.temperature = "warm";
+                    break;
+                case 2:
+                    this.temperature = "hot";
+                    break;
+                case 3:
+                    this.temperature = "cold";
+                    break;
+                case 4:
+                    this.temperature = "frigid";
+                    break;
+                case 5:
+                    this.temperature = "moderate temperature";
+                    break;
+                default:
+                    Console.WriteLine("There was an error getting the report");
+                    break;
+            }
+            return temperature;
+        }
+        public int GetOvercast()
+        {
+            Random rnd = new Random();
+            int condition = rnd.Next(1, 4);
+
+            switch (condition)
+            {
+                case 1:
+                    this.condition = "and sunny";
+                    break;
+                case 2:
+                    this.condition = "and cloudy";
+                    break;
+                case 3:
+                    this.condition = "with thunderstorms";
+                    break;
+                default:
+                    Console.WriteLine("There was an error getting the report");
+                    break;
+            }
+            return condition;
+        }
+        public void DisplayWeather()
+        {
+            Console.WriteLine($"Today's forcast is: {temperature}  {condition}");
+        }
+      
+
     }
 }

@@ -50,7 +50,7 @@
     <Compile Include="Game.cs" />
     <Compile Include="Ice.cs" />
     <Compile Include="Lemon.cs" />
-    <Compile Include="Ingredients.cs" />
+    <Compile Include="Supply.cs" />
     <Compile Include="Inventory.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />

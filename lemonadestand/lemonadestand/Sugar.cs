@@ -6,11 +6,23 @@ using System.Threading.Tasks;
 
 namespace lemonadestand
 {
-    public class Sugar : Ingredients
+    public class Sugar : Supply
     {
         public Sugar()
         {
 
+        }
+        public void SetName()
+        {
+            name = "sugar";
+        }
+        public void SetAmount()
+        {
+            amount = 0;
+        }
+        public void SetPrice()
+        {
+            price = .75;
         }
     }
 }

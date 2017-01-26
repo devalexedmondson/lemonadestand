@@ -10,7 +10,10 @@ namespace lemonadestand
     {
         static void Main(string[] args)
         {
-            string command = string.Empty;
+            Game rungame = new Game();
+            rungame.RunGame();
+            Console.ReadKey();
+              
 
 
         }

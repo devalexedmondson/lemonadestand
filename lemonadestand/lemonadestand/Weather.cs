@@ -11,7 +11,7 @@ namespace lemonadestand
     {
         public Weather()
         {
-
+            //make random switch case:one for temp and one for condition
         }
     }
 }

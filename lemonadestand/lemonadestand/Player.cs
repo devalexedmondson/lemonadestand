@@ -13,12 +13,17 @@ namespace lemonadestand
 
         public Player()
         {
-            inventory = new lemonadestand.Inventory();
+            inventory = new Inventory();
         }
-        public void AddIngredients(Ingredients supplies)
+        public void BuyLemon(Supply Lemon)
         {
-            inventory.supplies.Add(supplies);
+            //inventory.supplies.Add(lemon);
         }
+
+
+
+
+
         //buy/order ingredients option
 
         //adds ingredient to the inventory list and subtracts the price of that StoreSupply from inventory of player

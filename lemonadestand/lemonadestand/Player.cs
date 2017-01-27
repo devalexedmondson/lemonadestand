@@ -24,29 +24,46 @@ namespace lemonadestand
         //    inventory.AddCup(new Cup());
         //}
 
-        public int PlayerBuyLemon(Supply Lemon)
+        public void PlayerBuyLemon(Supply Lemon)
         {
             Console.WriteLine("How many lemons would you like to buy?");
             int lemon = Int32.Parse(Console.ReadLine());
-            return lemon;
+            for(int i = 0; i < lemon; i++)
+            {
+            
+                inventory.AddLemon(new Lemon());
+            }
         }
-        public int PlayerBuySugar(Supply Sugar)
+        
+        public void PlayerBuySugar(Supply Sugar)
         {
             Console.WriteLine("How many sugar would you like to buy?");
             int sugar = Int32.Parse(Console.ReadLine());
-            return sugar;
+            for (int i = 0; i < sugar; i++)
+            {
+
+                inventory.AddSugar(new Sugar());
+            }
         }
-        public int PlayerBuyIce(Supply Ice)
+        public void PlayerBuyIce(Supply Ice)
         {
             Console.WriteLine("How many ice would you like to buy?");
             int ice = Int32.Parse(Console.ReadLine());
-            return ice;
+            for (int i = 0; i < ice; i++)
+            {
+
+                inventory.AddIce(new Ice());
+            }
         }
-        public int PlayerBuyCup(Supply Cup)
+        public void PlayerBuyCup(Supply Cup)
         {
             Console.WriteLine("How many cups would you like to buy?");
             int cup = Int32.Parse(Console.ReadLine());
-            return cup;
+            for (int i = 0; i < cup; i++)
+            {
+
+                inventory.AddCup(new Cup());
+            }
         }
 
 
@@ -60,6 +77,8 @@ namespace lemonadestand
         //    Console.WriteLine("How many lemons would you like to add?");
         //}
         //adds ingredient to the inventory list and subtracts the price of that StoreSupply from inventory of player
+
+        //SellLemonade
 
         //a certain amount of ingredients will automatically create a pitcher
     }

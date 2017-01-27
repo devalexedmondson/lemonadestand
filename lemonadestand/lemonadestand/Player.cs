@@ -15,16 +15,18 @@ namespace lemonadestand
         {
             inventory = new Inventory();
         }
-        public void BuyLemon(Supply lemon)
-        {//buy/order ingredients option
-            inventory.supplies[0].Add(lemon);
-        }
-        public void AddSupplies()
+       
+        //public void AddSupplies()
+        //{ HOW YOU ADD TO THE LIST 
+        //    inventory.AddLemon(new Lemon());
+        //    inventory.AddSugar(new Sugar());
+        //    inventory.AddIce(new Ice());
+        //    inventory.AddCup(new Cup());
+        //}
+
+        public void BuyLemon(Supply Lemon)
         {
             inventory.AddLemon(new Lemon());
-            inventory.AddSugar(new Sugar());
-            inventory.AddIce(new Ice());
-            inventory.AddCup(new Cup());
         }
 
 

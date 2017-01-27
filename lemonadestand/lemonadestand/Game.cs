@@ -21,7 +21,7 @@ namespace lemonadestand
         {
             UI.WelcomePlayer();
             Console.Clear();
-            player.AddSupplies();
+           // player.AddSupplies();
             player.inventory.DisplayInventory();
             runDay.GetWeather();
 

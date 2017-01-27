@@ -16,10 +16,6 @@ namespace lemonadestand
         {
             name = "cup";
         }
-        public void SetAmount()
-        {
-            amount = 0;
-        }
         public void SetPrice()
         {
             price = .50;

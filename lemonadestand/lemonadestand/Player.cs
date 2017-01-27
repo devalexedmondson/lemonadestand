@@ -34,7 +34,6 @@ namespace lemonadestand
                 inventory.AddLemon(new Lemon());
             }
         }
-        
         public void PlayerBuySugar(Supply Sugar)
         {
             Console.WriteLine("How many sugar would you like to buy?");

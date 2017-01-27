@@ -8,15 +8,42 @@ namespace lemonadestand
 {
     public class UserInterface
     {
+     
         public UserInterface()
         {
-            
+           
         }
         public void WelcomePlayer()
         {
-            Console.WriteLine("Welcome to Lemonade stand!");
-            Console.WriteLine("Your objective is to try and sell as much lemonade as you can in the 7 days given to you.\n\n You will start off the game with a set amount of money and then you will shop for your three ingredients, lemons, sugar, and ice.\n\nThe things that affect your choices are the ingredients that you buy and the weather of the day.\n After each day your total profit or loss will be displayed. The goal is to make as much money possible. Good luck!");
+
+            Console.WriteLine("You have 7 days to make as much money as possible with the lemonade stand you have just opened. You have complete control over how you're business is run, including pricing, inventory and buying supplies. Buy your supplies, set your recipe, and start making money!\n\n You will start off the game with $20.00 and will have to buy your supplies, lemons, sugar, ice, and cups. After buying your supplies you get to decide your recipe and start making money.\n\n There are a couple of things that affect the way your customers will buy. The first thing is the weather. If the weather is hot and sunny more customers will be willing to buy your lemonade than if it was cold and storming. The next thing that will affect your game is your recipe, try switching it up to see what your customers like.\n\n After each day your total profit or loss will be displayed. The goal is to make as much money possible. Good luck!\n\n Press enter to continue.");
+            Console.ReadLine();
         }
-        //display inventory of player
+
+        //public string MainMenu()
+        //{
+        //    Console.WriteLine("Welcome to Lemonade stand!\n\n Please type your option: 'Start' new game, 'Game' Rules, 'Load' Game");
+        //    string userInput = Console.ReadLine();
+
+        //    switch (userInput)
+        //    {
+        //        case "Start":
+        //            game.RunGame();
+        //            break;
+        //        case "Game":
+        //            Console.WriteLine("You have 7 days to make as much money as possible with the lemonade stand you have just opened. You have complete control over how you're business is run, including pricing, inventory and buying supplies. Buy your supplies, set your recipe, and start making money!\n\n You will start off the game with $20.00 and will have to buy your supplies, lemons, sugar, ice, and cups. After buying your supplies you get to decide your recipe and start making money.\n\n There are a couple of things that affect the way your customers will buy. The first thing is the weather. If the weather is hot and sunny more customers will be willing to buy your lemonade than if it was cold and storming. The next thing that will affect your game is your recipe, try switching it up to see what your customers like.\n\n After each day your total profit or loss will be displayed. The goal is to make as much money possible. Good luck!\n\n Press enter to continue.");
+        //            Console.ReadLine();
+        //            break;
+        //        case "Load":
+
+        //            break;
+
+        //        default:
+        //            Console.WriteLine("User error, please type one of the options given.");
+        //            MainMenu();
+        //            break;
+        //    }
+        //    return userInput;
+        //}
     }
 }

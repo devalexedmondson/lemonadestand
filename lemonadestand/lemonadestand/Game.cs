@@ -20,7 +20,9 @@ namespace lemonadestand
         public void RunGame()
         {
             UI.WelcomePlayer();
-            //player.inventory.DisplayInventory();
+            Console.Clear();
+            player.AddSupplies();
+            player.inventory.DisplayInventory();
             runDay.GetWeather();
 
 

@@ -13,7 +13,7 @@ namespace lemonadestand
         public string condition;
         public Weather()
         {
-            //make random switch case:one for temp and one for condition
+
         }
         public int GetTemp()
         {
@@ -23,19 +23,19 @@ namespace lemonadestand
             switch (temperature)
             {
                 case 1:
-                    this.temperature = "warm";
+                    this.temperature = "Warm";
                     break;
                 case 2:
-                    this.temperature = "hot";
+                    this.temperature = "Hot";
                     break;
                 case 3:
-                    this.temperature = "cold";
+                    this.temperature = "Cold";
                     break;
                 case 4:
-                    this.temperature = "frigid";
+                    this.temperature = "Frigid";
                     break;
                 case 5:
-                    this.temperature = "moderate temperature";
+                    this.temperature = "Moderate temperature";
                     break;
                 default:
                     Console.WriteLine("There was an error getting the report");
@@ -67,9 +67,7 @@ namespace lemonadestand
         }
         public void DisplayWeather()
         {
-            Console.WriteLine($"Today's forcast is: {temperature}  {condition}");
+            Console.WriteLine($"Today's forcast is: {temperature} {condition}");
         }
-      
-
     }
 }

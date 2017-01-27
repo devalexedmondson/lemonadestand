@@ -16,20 +16,28 @@ namespace lemonadestand
             inventory = new Inventory();
         }
         public void BuyLemon(Supply lemon)
-        {
+        {//buy/order ingredients option
             inventory.supplies[0].Add(lemon);
+        }
+        public void AddSupplies()
+        {
+            inventory.AddLemon(new Lemon());
+            inventory.AddSugar(new Sugar());
+            inventory.AddIce(new Ice());
+            inventory.AddCup(new Cup());
         }
 
 
 
 
 
-        //buy/order ingredients option
 
+        //public void MakeRecipe()
+        //{
+        //    Console.WriteLine("How many lemons would you like to add?");
+        //}
         //adds ingredient to the inventory list and subtracts the price of that StoreSupply from inventory of player
 
         //a certain amount of ingredients will automatically create a pitcher
-
-
     }
 }

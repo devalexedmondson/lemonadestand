@@ -24,10 +24,31 @@ namespace lemonadestand
         //    inventory.AddCup(new Cup());
         //}
 
-        public void BuyLemon(Supply Lemon)
+        public int PlayerBuyLemon(Supply Lemon)
         {
-            inventory.AddLemon(new Lemon());
+            Console.WriteLine("How many lemons would you like to buy?");
+            int lemon = Int32.Parse(Console.ReadLine());
+            return lemon;
         }
+        public int PlayerBuySugar(Supply Sugar)
+        {
+            Console.WriteLine("How many sugar would you like to buy?");
+            int sugar = Int32.Parse(Console.ReadLine());
+            return sugar;
+        }
+        public int PlayerBuyIce(Supply Ice)
+        {
+            Console.WriteLine("How many ice would you like to buy?");
+            int ice = Int32.Parse(Console.ReadLine());
+            return ice;
+        }
+        public int PlayerBuyCup(Supply Cup)
+        {
+            Console.WriteLine("How many cups would you like to buy?");
+            int cup = Int32.Parse(Console.ReadLine());
+            return cup;
+        }
+
 
 
 

@@ -65,9 +65,13 @@ namespace lemonadestand
             }
             return condition;
         }
-        public void DisplayWeather()
+        public void DisplayCurrentWeather()
         {
             Console.WriteLine($"Today's forcast is: {temperature} {condition}");
+        }
+        public void DisplayForecast()
+        {
+            Console.WriteLine($"The weather for tomorrow: {temperature} {condition}");
         }
     }
 }

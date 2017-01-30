@@ -8,7 +8,6 @@ namespace lemonadestand
 {
     public class Inventory
     {
-        //relates to inventory class in dealership
         public double money = 20.00;
         public List<List<Supply>> supplies;
 
@@ -25,6 +24,7 @@ namespace lemonadestand
             supplies.Add(cup);
             //this adds the supplies to the list so they can be placeholders. 
         }
+        
         public void AddLemon(Lemon lemon)
         {
             supplies[0].Add(lemon);
@@ -45,9 +45,8 @@ namespace lemonadestand
         public void DisplayInventory()
         {
             Console.WriteLine($"Your current inventory:\n\n Money: ${money}\n Lemons: {supplies[0].Count}\n Sugar: {supplies[1].Count}\n Ice: {supplies[2].Count}\n Cups: {supplies[3].Count}");
+            Console.ReadKey();
+            Console.Clear();
         }
-
-
-
     }
 }

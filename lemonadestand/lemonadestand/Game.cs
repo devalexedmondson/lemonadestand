@@ -21,13 +21,15 @@ namespace lemonadestand
         {
             UI.WelcomePlayer();
             Console.Clear();
-            // player.AddSupplies();
+            player.inventory.DisplayInventory();
             player.PlayerBuyLemon(new Lemon());
-            player.PlayerBuySugar(new Sugar());
+            player.PlayerBuySugar(new Sugar()); 
             player.PlayerBuyIce(new Ice());
             player.PlayerBuyCup(new Cup());
+            Console.Clear();
             player.inventory.DisplayInventory();
             runDay.GetWeather();
+            runDay.GetForecast();
 
 
         }

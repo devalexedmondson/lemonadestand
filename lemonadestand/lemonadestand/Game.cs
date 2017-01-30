@@ -11,21 +11,20 @@ namespace lemonadestand
         public Player player;
         public UserInterface UI;
         public Day runDay;
+        public Store store;
        public Game()
         {
             player = new Player();
             UI = new UserInterface();
             runDay= new Day();
+            store = new Store();
         }
         public void RunGame()
         {
             UI.WelcomePlayer();
             Console.Clear();
             player.inventory.DisplayInventory();
-            player.PlayerBuyLemon(new Lemon());
-            player.PlayerBuySugar(new Sugar()); 
-            player.PlayerBuyIce(new Ice());
-            player.PlayerBuyCup(new Cup());
+            store.StoreStart(player);
             Console.Clear();
             player.inventory.DisplayInventory();
             runDay.GetWeather();

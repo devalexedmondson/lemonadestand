@@ -11,72 +11,81 @@ namespace lemonadestand
         public Store()
         {
         }
-        public void StoreStart()
+        public void StoreStart(Player player)
         {
-            Console.WriteLine("Welcome to the store. While you are here you can buy the necessary items to make your lemonade. What would you like to do, 'buy' ingredients, 'check' inventory, quit?");
+            Console.WriteLine("Welcome to the store! While you are here you can buy the necessary items to make your lemonade. What would you like to do, 'buy' ingredients, 'check' inventory, 'leave' store?");
             string userInput = Console.ReadLine();
 
             switch (userInput)
             {
                 case "buy":
-                    PlayerBuyLemon(new Lemon());
-                    PlayerBuySugar(new Sugar());
-                    PlayerBuyIce(new Ice());
-                    PlayerBuyCup(new Cup());
+                    PlayerBuyLemon(player);
+                    PlayerBuySugar(player);
+                    PlayerBuyIce(player);
+                    PlayerBuyCup(player);
+                    player.inventory.DisplayInventory();
+                    Console.Clear();
+                    StoreStart(player);
                     break;
 
                 case "check":
                     player.inventory.DisplayInventory();
+                    StoreStart(player);
                     break;
 
-                case "quit":
-
+                case "leave":
+                    
                     break;
 
                 default:
-
-                    StoreStart();
+                    Console.WriteLine("User error, please select one of the options.");
+                    Console.ReadKey();
+                    Console.Clear();
+                    StoreStart(player);
                     break;
             }
         }
-        public int PlayerBuyLemon(Supply Lemon)
+        public int PlayerBuyLemon(Player player)
         {
             Console.WriteLine("How many lemons would you like to buy?");
             int lemon = Int32.Parse(Console.ReadLine());
             for (int i = 0; i < lemon; i++)
             {
-                inventory.AddLemon(new Lemon());
+                player.inventory.AddLemon(new Lemon());
             }
             return lemon;
         }
-        public void PlayerBuySugar(Supply Sugar)
+        public int PlayerBuySugar(Player player)
         {
             Console.WriteLine("How much sugar would you like to buy?");
             int sugar = Int32.Parse(Console.ReadLine());
             for (int i = 0; i < sugar; i++)
             {
-                inventory.AddSugar(new Sugar());
+                player.inventory.AddSugar(new Sugar());
             }
+            return sugar;
         }
-        public void PlayerBuyIce(Supply Ice)
+        public int PlayerBuyIce(Player player)
         {
             Console.WriteLine("How much ice would you like to buy?");
             int ice = Int32.Parse(Console.ReadLine());
             for (int i = 0; i < ice; i++)
             {
 
-                inventory.AddIce(new Ice());
+                player.inventory.AddIce(new Ice());
             }
+            return ice;
         }
-        public void PlayerBuyCup(Supply Cup)
+        public int PlayerBuyCup(Player player)
         {
             Console.WriteLine("How many cups would you like to buy?");
             int cup = Int32.Parse(Console.ReadLine());
             for (int i = 0; i < cup; i++)
             {
 
-                inventory.AddCup(new Cup());
+                player.inventory.AddCup(new Cup());
             }
+            return cup;
         }
 
         public void GetTotalExpense()

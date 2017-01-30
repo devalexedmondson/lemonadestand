@@ -22,7 +22,13 @@ namespace lemonadestand
             switch (userInput)
             {
                 case "make":
-                    
+                    int lemon = PickLemons(player);
+                    int sugar = PickSugar(player);
+                    int ice = PickIce(player);
+                    int cup = PickCup(player);
+                    player.inventory.DisplayInventory();
+                    Console.Clear();
+                    RecipeStart(player);
                     break;
 
                 case "check":
@@ -42,10 +48,49 @@ namespace lemonadestand
                     break;
             }
         }
-        public void PickLemons()
+        public int PickLemons(Player player)
         {
             Console.WriteLine("How many lemons would you like to put in your recipe?");
+            int lemon = Int32.Parse(Console.ReadLine());
+            for (int i = 0; i < lemon; i++)
+            {
+                player.inventory.supplies[0].RemoveAt(0);
+            }
+            return lemon;
         }
-    
+
+        public int PickSugar(Player player)
+        {
+            Console.WriteLine("How much sugar would you like to put in your recipe?");
+            int sugar = Int32.Parse(Console.ReadLine());
+            for (int i = 0; i < sugar; i++)
+            {
+                player.inventory.supplies[1].RemoveAt(0);
+            }
+            return sugar;
+        }
+
+        public int PickIce(Player player)
+        {
+            Console.WriteLine("How much ice would you like to put in your recipe?");
+            int ice = Int32.Parse(Console.ReadLine());
+            for (int i = 0; i < ice; i++)
+            {
+                player.inventory.supplies[2].RemoveAt(0);
+            }
+            return ice;
+        }
+
+        public int PickCup(Player player)
+        {
+            Console.WriteLine("How many cups would you like to use for your recipe?");
+            int cup = Int32.Parse(Console.ReadLine());
+            for (int i = 0; i < cup; i++)
+            {
+                player.inventory.supplies[3].RemoveAt(0);
+            }
+            return cup;
+        }
+
     }
 }

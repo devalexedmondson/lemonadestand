@@ -19,7 +19,7 @@ namespace lemonadestand
             switch (userInput)
             {
                 case "buy":
-                    Console.WriteLine("Decide how much of each supply you would like to buy. If you do not want to buy an item, type 0.\n\n PRICES:\n\nLemons: $1.00\nSugar: $.75\nIce: $.50\nCups: $.50");
+                    Console.WriteLine("Decide how much of each supply you would like to buy. If you do not want to buy an item, type 0.\n\n PRICES:\n\nLemons: $.50\nSugar: $.25\nIce: $.50\nCups: $.25");
                     int lemon = PlayerBuyLemon(player);
                     int sugar = PlayerBuySugar(player);
                     int ice = PlayerBuyIce(player);

@@ -19,10 +19,12 @@ namespace lemonadestand
             switch (userInput)
             {
                 case "buy":
-                    PlayerBuyLemon(player);
-                    PlayerBuySugar(player);
-                    PlayerBuyIce(player);
-                    PlayerBuyCup(player);
+                    int lemon = PlayerBuyLemon(player);
+                    int sugar = PlayerBuySugar(player);
+                    int ice = PlayerBuyIce(player);
+                    int cup = PlayerBuyCup(player);
+                    double expense = GetLemonExpense(lemon, player);
+                    WithdrawFromMoney(player,expense);
                     player.inventory.DisplayInventory();
                     Console.Clear();
                     StoreStart(player);
@@ -55,6 +57,23 @@ namespace lemonadestand
             }
             return lemon;
         }
+        public double GetLemonExpense(int lemon, Player player)
+        {
+            double expense;
+            expense = lemon * new Lemon().price;
+            return expense;
+        }
+        public bool WithdrawFromMoney(Player player, double expense)
+        {
+            if (player.inventory.money > expense)
+            {
+                Console.WriteLine($"{expense} was taken from your money.");
+                player.inventory.money -= expense;
+                return true;
+            }
+                Console.WriteLine("You do not have enough money to complete this transaction.");
+                return false;
+        }
         public int PlayerBuySugar(Player player)
         {
             Console.WriteLine("How much sugar would you like to buy?");
@@ -64,6 +83,12 @@ namespace lemonadestand
                 player.inventory.AddSugar(new Sugar());
             }
             return sugar;
+        }
+        public double GetSugarExpense(int sugar, Player player)
+        {
+            double expense;
+            expense = sugar * new Sugar().price;
+            return expense;
         }
         public int PlayerBuyIce(Player player)
         {
@@ -87,25 +112,12 @@ namespace lemonadestand
             }
             return cup;
         }
-
-        public void GetTotalExpense()
-        {
-            //Will be a double:
-            //expense = amount of item bought *item price 
-        }
+        
         public void AddToMoney(double amountToAdd)
         {
             //inventory.money += amountToAdd;
         }
 
-        public bool WithdrawFromMoney(double amountToWithdraw)
-        {
-            //if (inventory.money > amountToWithdraw)
-            {
-                //inventory.money -= amountToWithdraw;
-                return true;
-            }
-            return false;
-        }
+        
     }
 }

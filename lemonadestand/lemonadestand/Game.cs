@@ -29,8 +29,6 @@ namespace lemonadestand
             player.inventory.DisplayInventory();
             runDay.GetWeather();
             runDay.GetForecast();
-
-
         }
     }   
 }

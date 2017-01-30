@@ -23,8 +23,15 @@ namespace lemonadestand
                     int sugar = PlayerBuySugar(player);
                     int ice = PlayerBuyIce(player);
                     int cup = PlayerBuyCup(player);
-                    double expense = GetLemonExpense(lemon, player);
-                    WithdrawFromMoney(player,expense);
+                    double lemonExpense = GetLemonExpense(lemon, player);
+                    WithdrawLemonMoney(player,lemonExpense);
+                    double sugarExpense = GetSugarExpense(sugar, player);
+                    WithdrawSugarMoney(player, sugarExpense);
+                    double iceExpense = GetIceExpense(ice, player);
+                    WithdrawIceMoney(player, iceExpense);
+                    double cupExpense = GetCupExpense(cup, player);
+                    WithdrawCupMoney(player, cupExpense);
+
                     player.inventory.DisplayInventory();
                     Console.Clear();
                     StoreStart(player);
@@ -63,11 +70,10 @@ namespace lemonadestand
             expense = lemon * new Lemon().price;
             return expense;
         }
-        public bool WithdrawFromMoney(Player player, double expense)
+        public bool WithdrawLemonMoney(Player player, double expense)
         {
             if (player.inventory.money > expense)
             {
-                Console.WriteLine($"{expense} was taken from your money.");
                 player.inventory.money -= expense;
                 return true;
             }
@@ -90,6 +96,17 @@ namespace lemonadestand
             expense = sugar * new Sugar().price;
             return expense;
         }
+        public bool WithdrawSugarMoney(Player player, double expense)
+        {
+            if (player.inventory.money > expense)
+            {
+                player.inventory.money -= expense;
+                return true;
+            }
+          
+            Console.WriteLine("You do not have enough money to complete this transaction.");
+            return false;
+        }
         public int PlayerBuyIce(Player player)
         {
             Console.WriteLine("How much ice would you like to buy?");
@@ -100,6 +117,23 @@ namespace lemonadestand
                 player.inventory.AddIce(new Ice());
             }
             return ice;
+        }
+        public double GetIceExpense(int ice, Player player)
+        {
+            double expense;
+            expense = ice * new Ice().price;
+            return expense;
+        }
+        public bool WithdrawIceMoney(Player player, double expense)
+        {
+            if (player.inventory.money > expense)
+            {
+                player.inventory.money -= expense;
+                return true;
+            }
+
+            Console.WriteLine("You do not have enough money to complete this transaction.");
+            return false;
         }
         public int PlayerBuyCup(Player player)
         {
@@ -112,7 +146,23 @@ namespace lemonadestand
             }
             return cup;
         }
-        
+        public double GetCupExpense(int cup, Player player)
+        {
+            double expense; 
+            expense = cup * new Cup().price;
+            return expense;
+        }
+        public bool WithdrawCupMoney(Player player, double expense)
+        {
+            if (player.inventory.money > expense)
+            {
+                player.inventory.money -= expense;
+                return true;
+            }
+            Console.WriteLine("You do not have enough money to complete this transaction.");
+            return false;
+        }
+
         public void AddToMoney(double amountToAdd)
         {
             //inventory.money += amountToAdd;

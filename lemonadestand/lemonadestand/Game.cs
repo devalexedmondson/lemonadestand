@@ -12,12 +12,14 @@ namespace lemonadestand
         public UserInterface UI;
         public Day runDay;
         public Store store;
+        public Recipe recipe;
        public Game()
         {
             player = new Player();
             UI = new UserInterface();
             runDay= new Day();
             store = new Store();
+            recipe = new Recipe();
         }
         public void RunGame()
         {
@@ -25,6 +27,8 @@ namespace lemonadestand
             Console.Clear();
             player.inventory.DisplayInventory();
             store.StoreStart(player);
+            Console.Clear();
+            recipe.RecipeStart(player);
             Console.Clear();
             player.inventory.DisplayInventory();
             runDay.GetWeather();

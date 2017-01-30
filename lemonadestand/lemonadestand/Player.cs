@@ -16,18 +16,20 @@ namespace lemonadestand
             inventory = new Inventory();
         }
 
-     
-
-
-
-
-
-
-        //public void MakeRecipe()
-        //{
-        //    Console.WriteLine("How many lemons would you like to add?");
-        //}
+        public void MakeRecipe()
+        {
+            Console.WriteLine("How many lemons would you like to add?");
+        }
         //adds ingredient to the inventory list and subtracts the price of that StoreSupply from inventory of player
+
+
+
+
+
+
+
+
+
 
         //SellLemonade
 

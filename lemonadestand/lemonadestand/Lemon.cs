@@ -11,7 +11,7 @@ namespace lemonadestand
         
         public Lemon()
         {
-            this.price = 1.00;
+            this.price = .50;
         }
         public void SetName()
         {

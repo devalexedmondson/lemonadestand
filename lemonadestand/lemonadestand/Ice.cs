@@ -10,7 +10,7 @@ namespace lemonadestand
     {
         public Ice()
         {
-            this.price = .50;
+            this.price = .15;
         }
         public void SetName()
         {

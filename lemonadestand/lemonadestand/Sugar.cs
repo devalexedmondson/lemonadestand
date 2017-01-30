@@ -10,7 +10,7 @@ namespace lemonadestand
     {
         public Sugar()
         {
-            this.price = .75;
+            this.price = .25;
         }
         public void SetName()
         {

@@ -13,12 +13,13 @@ namespace lemonadestand
         }
         public void StoreStart(Player player)
         {
-            Console.WriteLine("Welcome to the store! While you are here you can buy the necessary items to make your lemonade. What would you like to do, 'buy' ingredients, 'check' inventory, 'leave' store?");
+            Console.WriteLine("Welcome to the store! While you are here you can buy the necessary items to make your lemonade. What would you like to do:'buy' ingredients, 'check' inventory, 'leave' store?");
             string userInput = Console.ReadLine();
 
             switch (userInput)
             {
                 case "buy":
+                    Console.WriteLine("Decide how much of each supply you would like to buy. If you do not want to buy an item, type 0.\n\n PRICES:\n\nLemons: $1.00\nSugar: $.75\nIce: $.50\nCups: $.50");
                     int lemon = PlayerBuyLemon(player);
                     int sugar = PlayerBuySugar(player);
                     int ice = PlayerBuyIce(player);

@@ -22,6 +22,7 @@ namespace lemonadestand
             switch (userInput)
             {
                 case "make":
+                    player.inventory.DisplayInventory();
                     int lemon = PickLemons(player);
                     int sugar = PickSugar(player);
                     int ice = PickIce(player);

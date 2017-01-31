@@ -16,17 +16,17 @@ namespace lemonadestand
             weather = new Weather();
             customer = new List<Customer>();
         }
-        public void GetWeather()
+        public void GetWeather(Random rnd)
         {
-            weather.GetTemp();
-            weather.GetOvercast();
+            weather.GetTemp(rnd);
+            weather.GetOvercast(rnd);
             weather.DisplayCurrentWeather();
             //each time a day is called
         }  
-        public void GetForecast()
+        public void GetForecast(Random rnd)
         {
-            weather.GetTemp();
-            weather.GetOvercast();
+            weather.GetTemp(rnd);
+            weather.GetOvercast(rnd);
             weather.DisplayForecast();
         }
 

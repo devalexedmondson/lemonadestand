@@ -15,9 +15,9 @@ namespace lemonadestand
         {
 
         }
-        public int GetTemp()
+        public int GetTemp(Random rnd)
         {
-            Random rnd = new Random();
+            //Random rnd = new Random();
             int temperature = rnd.Next(1, 6);
 
             switch (temperature)
@@ -43,9 +43,9 @@ namespace lemonadestand
             }
             return temperature;
         }
-        public int GetOvercast()
+        public int GetOvercast(Random rnd)
         {
-            Random rnd = new Random();
+            //Random rnd = new Random();
             int condition = rnd.Next(1, 4);
 
             switch (condition)

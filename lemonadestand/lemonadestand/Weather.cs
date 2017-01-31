@@ -17,26 +17,22 @@ namespace lemonadestand
         }
         public int GetTemp(Random rnd)
         {
-            //Random rnd = new Random();
-            int temperature = rnd.Next(1, 6);
+            int temperature = rnd.Next(1, 4);
 
             switch (temperature)
             {
                 case 1:
-                    this.temperature = "Warm";
+                    this.temperature = "Hot";
                     break;
                 case 2:
-                    this.temperature = "Hot";
+                    this.temperature = "Warm";
                     break;
                 case 3:
                     this.temperature = "Cold";
                     break;
-                case 4:
-                    this.temperature = "Frigid";
-                    break;
-                case 5:
-                    this.temperature = "Moderate temperature";
-                    break;
+                //case 4:
+                //    this.temperature = "Frigid";
+                //    break;
                 default:
                     Console.WriteLine("There was an error getting the report");
                     break;
@@ -45,7 +41,6 @@ namespace lemonadestand
         }
         public int GetOvercast(Random rnd)
         {
-            //Random rnd = new Random();
             int condition = rnd.Next(1, 4);
 
             switch (condition)
@@ -67,11 +62,11 @@ namespace lemonadestand
         }
         public void DisplayCurrentWeather()
         {
-            Console.WriteLine($"Today's forcast is: {temperature} {condition}");
+            Console.WriteLine($"Today's forcast is: {temperature} {condition}\n");
         }
         public void DisplayForecast()
         {
-            Console.WriteLine($"The weather for tomorrow: {temperature} {condition}");
+            Console.WriteLine($"The weather for tomorrow: {temperature} {condition}\n");
         }
     }
 }

@@ -21,6 +21,7 @@ namespace lemonadestand
             weather.GetTemp(rnd);
             weather.GetOvercast(rnd);
             weather.DisplayCurrentWeather();
+            
             //each time a day is called
         }  
         public void GetForecast(Random rnd)
@@ -28,6 +29,106 @@ namespace lemonadestand
             weather.GetTemp(rnd);
             weather.GetOvercast(rnd);
             weather.DisplayForecast();
+        }
+        public void GetTotalCustomers(Random rnd)
+        {
+            //int customerNumber = Int32.Parse("");
+            if (weather.temperature == "Hot" && weather.condition == "and sunny")
+            {
+                int customerNumber = rnd.Next(25, 30);
+                for (int i = 0; i < customerNumber; i++)
+                {
+                    customer.Add(new Customer());
+                }  
+            }
+            else if (weather.temperature == "Hot" && weather.condition == "and cloudy")
+            {
+                int customerNumber = rnd.Next(20,26);
+                for (int i = 0; i < customerNumber; i++)
+                {
+                    customer.Add(new Customer());
+                }
+            }
+            else if (weather.temperature == "Hot" && weather.condition == "with thunderstorms")
+            {
+                int customerNumber = rnd.Next(10, 16);
+                for (int i = 0; i < customerNumber; i++)
+                {
+                    customer.Add(new Customer());
+                }
+            }
+            else if (weather.temperature == "Warm" && weather.condition == "and sunny")
+            {
+                int customerNumber = rnd.Next(15, 21);
+                for (int i = 0; i < customerNumber; i++)
+                {
+                    customer.Add(new Customer());
+                }
+            }
+            else if (weather.temperature == "Warm" && weather.condition == "and cloudy")
+            {
+                int customerNumber = rnd.Next(10, 16);
+                for (int i = 0; i < customerNumber; i++)
+                {
+                    customer.Add(new Customer());
+                }
+            }
+            else if (weather.temperature == "Warm" && weather.condition == "with thunderstorms")
+            {
+                int customerNumber = rnd.Next(5, 11);
+                for (int i = 0; i < customerNumber; i++)
+                {
+                    customer.Add(new Customer());
+                }
+            }
+            else if (weather.temperature == "Cold" && weather.condition == "and sunny")
+            {
+                int customerNumber = rnd.Next(5, 11);
+                for (int i = 0; i < customerNumber; i++)
+                {
+                    customer.Add(new Customer());
+                }
+            }
+            else if (weather.temperature == "Cold" && weather.condition == "and cloudy")
+            {
+                int customerNumber = rnd.Next(0, 6);
+                for (int i = 0; i < customerNumber; i++)
+                {
+                    customer.Add(new Customer());
+                }
+            }
+            else if (weather.temperature == "Cold" && weather.condition == "with thunderstorms")
+            {
+                int customerNumber = rnd.Next(0, 2);
+                for (int i = 0; i < customerNumber; i++)
+                {
+                    customer.Add(new Customer());
+                }
+            }
+            //else if (weather.temperature == "4" && weather.condition == "1")
+            //{
+            //    int customerNumber = rnd.Next(5, 11);
+            //    for (int i = 0; i < customerNumber; i++)
+            //    {
+            //        customer.Add(new Customer());
+            //    }
+            //}
+            //else if (weather.temperature == "4" && weather.condition == "2")
+            //{
+            //    int customerNumber = rnd.Next(0, 6);
+            //    for (int i = 0; i < customerNumber; i++)
+            //    {
+            //        customer.Add(new Customer());
+            //    }
+            //}
+            //else if (weather.temperature == "4" && weather.condition == "3")
+            //{
+            //    int customerNumber = rnd.Next(0, 2);
+            //    for (int i = 0; i < customerNumber; i++)
+            //    {
+            //        customer.Add(new Customer());
+            //    }
+            //}
         }
 
         

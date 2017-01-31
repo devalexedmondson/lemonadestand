@@ -31,7 +31,6 @@ namespace lemonadestand
         }
         public void GetTotalCustomers(Random rnd)//customers that come out based on weather conditions
         {
-            //int customerNumber = Int32.Parse("");
             if (weather.temperature == "Hot" && weather.condition == "and sunny")
             {
                 int customerNumber = rnd.Next(25, 30);

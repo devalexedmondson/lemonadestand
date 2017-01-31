@@ -13,9 +13,6 @@ namespace lemonadestand
             Game rungame = new Game();
             rungame.RunGame();
             Console.ReadKey();
-              
-
-
         }
     }
 }

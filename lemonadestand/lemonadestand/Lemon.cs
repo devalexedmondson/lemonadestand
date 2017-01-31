@@ -19,7 +19,7 @@ namespace lemonadestand
         }
         public void SetPrice()
         {
-            price = 1.00;
+            price = .50;
         }
     }
 }

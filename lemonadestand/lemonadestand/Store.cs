@@ -174,8 +174,5 @@ namespace lemonadestand
             totalExpense = lemonExpense + sugarExpense + iceExpense + cupExpense;
             return totalExpense;
         }
-        
-
-        
     }
 }

@@ -31,7 +31,7 @@ namespace lemonadestand
             player.inventory.DisplayInventory();
             store.StoreStart(player);
             Console.Clear();
-            runDay.GetWeather(rnd);//make sure to add 
+            runDay.GetWeather(rnd);
             runDay.GetForecast(rnd);
             recipe.RecipeStart(player);
             Console.Clear();
@@ -39,18 +39,6 @@ namespace lemonadestand
             runDay.GetTotalCustomers(rnd);
             
             
-        }
-        public void NextDay()
-        {
-            player.inventory.DisplayInventory();
-            store.StoreStart(player);
-            Console.Clear();
-            runDay.GetWeather(rnd);//make sure to add 
-            runDay.GetForecast(rnd);
-            recipe.RecipeStart(player);
-            Console.Clear();
-            player.inventory.DisplayInventory();
-            runDay.GetTotalCustomers(rnd);
         }
 
     }

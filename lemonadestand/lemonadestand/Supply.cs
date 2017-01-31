@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace lemonadestand
 {
     public abstract class Supply
-    { // relates to automobile class and holds the ingredients
+    {
         public string name;
         public double price;
 

@@ -107,6 +107,5 @@ namespace lemonadestand
         {
           //equation that takes in recipe and tells player how many cups they will be making. 
         }
-
     }
 }

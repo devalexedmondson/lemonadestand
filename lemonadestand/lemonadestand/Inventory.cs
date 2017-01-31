@@ -11,14 +11,18 @@ namespace lemonadestand
         public double money = 20.00;
         public List<List<Supply>> supplies;
         public double profit;
+        List<Supply> lemon;
+        List<Supply> sugar;
+        List<Supply> ice;
+        List<Supply> cup;
 
         public Inventory()
         {
             supplies = new List<List<Supply>>();
-            List<Supply> lemon = new List<Supply>();
-            List<Supply> sugar = new List<Supply>();
-            List<Supply> ice = new List<Supply>();
-            List<Supply> cup = new List<Supply>();
+            lemon = new List<Supply>();
+            sugar = new List<Supply>();
+            ice = new List<Supply>();
+            cup = new List<Supply>();
             supplies.Add(lemon);
             supplies.Add(sugar);
             supplies.Add(ice);

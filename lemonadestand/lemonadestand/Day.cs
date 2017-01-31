@@ -11,6 +11,7 @@ namespace lemonadestand
         public Weather weather;
         public int day;
         public List<Customer> customer;
+
         public Day()
         {
             weather = new Weather();
@@ -103,10 +104,6 @@ namespace lemonadestand
                     customer.Add(new Customer());
                 }
             }
-        }
-        public void GetCustomersBuying()
-        {
-
         }
     }
 }

@@ -20,8 +20,8 @@ namespace lemonadestand
         public void RecipeStart(Player player)
         {
             Console.WriteLine("RECIPE MAKER\n");
-            Console.WriteLine("Time to make your recipe! To make one cup of lemonade you need 2 lemons, 2 sugar, and 3 ice. Try changing up your recipe to see what works best for you and your customers. Remember, your recipe will affect how many customers will buy your product. After you make your recipe set the price for each cup of lemonade.\n\n");
-            Console.WriteLine("What would you like to do: 'make' recipe, 'check' inventory,'leave' store?");
+            Console.WriteLine("Time to make your recipe! To make one cup of lemonade you need 2 lemons, 2 sugar, and 3 ice. Try changing up your recipe to see what works best for you and your customers. Remember, the weather will affect how many customers are out that day, and your recipe will affect how many customers will buy your product. MAKE YOUR RECIPE AND THEN MAKE SURE TO SET THE PRICE FOR EACH CUP. \n\n");
+            Console.WriteLine("What would you like to do: 'make' recipe, 'check' inventory, 'set' lemonade price, 'display' recipe, 'leave' store?");
             string userInput = Console.ReadLine();
 
             switch (userInput)
@@ -31,15 +31,21 @@ namespace lemonadestand
                     int lemon = PickLemons(player);
                     int sugar = PickSugar(player);
                     int ice = PickIce(player);
-                    int cup = PickCup(player);
                     player.inventory.DisplayInventory();
                     Console.Clear();
-                    PickLemonadePrice();
                     RecipeStart(player);
                     break;
 
                 case "check":
                     player.inventory.DisplayInventory();
+                    RecipeStart(player);
+                    break;
+                case "set":
+                    DisplayRecipe();
+                    PickLemonadePrice();
+                    return;
+                case "display":
+                    DisplayRecipe();
                     RecipeStart(player);
                     break;
                 case "leave":
@@ -75,7 +81,6 @@ namespace lemonadestand
             }
             return sugar;
         }
-
         public int PickIce(Player player)
         {
             Console.WriteLine("How much ice would you like to put in your recipe?");
@@ -86,21 +91,21 @@ namespace lemonadestand
             }
             return ice;
         }
-        public int PickCup(Player player)
-        {
-            Console.WriteLine("How many cups would you like to use for your recipe?");
-            int cup = Int32.Parse(Console.ReadLine());
-            for (int i = 0; i < cup; i++)
-            {
-                player.inventory.supplies[3].RemoveAt(0);
-            }
-            return cup;
-        }
         public double PickLemonadePrice()
         {
-            Console.WriteLine("How much would you like to see your lemonade for?");
+            Console.WriteLine("How much would you like to sell each cup of your lemonade for?");
             double lemonadeprice = double.Parse(Console.ReadLine());
             return lemonadeprice;
+        }
+        public void DisplayRecipe()
+        {
+            Console.WriteLine($"Your current recipe includes: \n{lemon}: Lemons \n{sugar}: Sugar \n{ice}: Ice");
+            Console.ReadKey();
+            Console.Clear();
+        }
+        public void DisplayTotalLemonade()
+        {
+          //equation that takes in recipe and tells player how many cups they will be making. 
         }
 
     }

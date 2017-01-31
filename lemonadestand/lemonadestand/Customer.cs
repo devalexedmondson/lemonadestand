@@ -12,7 +12,26 @@ namespace lemonadestand
 
         public Customer()
         {
-
+            demand = new Demand();
+        }
+        public void BuyLemonade(Demand demand)
+        {
+            if (demand.priceDemand == 3)
+            {
+                //buy all of the lemonade 
+            }
+            else if (demand.priceDemand == 2)
+            {
+                //buy 75% of lemonade
+            }
+            else if (demand.priceDemand == 1)
+            {
+                //buy 25% of lemonade
+            }
+            else if (demand.priceDemand == 0)
+            {
+                //buy no lemonade
+            }
         }
     }
 }

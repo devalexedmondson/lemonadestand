@@ -8,14 +8,13 @@ namespace lemonadestand
 {
     public class Demand
     {
-        int priceDemand;
-        int weatherDemand;
+        public int priceDemand;
 
         public Demand()
         {
             
         }
-        public void GetCustomersBuying(Recipe recipe)
+        public int GetCustomersBuying(Recipe recipe)
         {
             if (recipe.lemonadePrice <= 1.00)
             {
@@ -33,6 +32,7 @@ namespace lemonadestand
             {
                 priceDemand = 0;
             }
+            return priceDemand;
         }
     }
 }

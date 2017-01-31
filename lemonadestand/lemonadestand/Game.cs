@@ -28,7 +28,6 @@ namespace lemonadestand
         {
             UI.WelcomePlayer();
             Console.Clear();
-            //UI.MainMenu(player, store, recipe)
             player.inventory.DisplayInventory();
             store.StoreStart(player);
             Console.Clear();
@@ -38,10 +37,21 @@ namespace lemonadestand
             Console.Clear();
             player.inventory.DisplayInventory();
             runDay.GetTotalCustomers(rnd);
-
+            
             
         }
-
+        public void NextDay()
+        {
+            player.inventory.DisplayInventory();
+            store.StoreStart(player);
+            Console.Clear();
+            runDay.GetWeather(rnd);//make sure to add 
+            runDay.GetForecast(rnd);
+            recipe.RecipeStart(player);
+            Console.Clear();
+            player.inventory.DisplayInventory();
+            runDay.GetTotalCustomers(rnd);
+        }
 
     }
 }

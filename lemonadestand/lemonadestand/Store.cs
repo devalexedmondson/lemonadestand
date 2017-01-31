@@ -33,6 +33,7 @@ namespace lemonadestand
                     double cupExpense = GetCupExpense(cup, player);
                     WithdrawCupMoney(player, cupExpense);
                     player.inventory.DisplayInventory();
+                    GetPlayerTotalExpense(lemonExpense, sugarExpense, iceExpense, cupExpense);
                     Console.Clear();
                     StoreStart(player);
                     break;
@@ -163,15 +164,17 @@ namespace lemonadestand
             }
             else if (player.inventory.money < expense)
             {
-                Console.WriteLine("You do not have enough money to buy that amount of lemons.");
+                Console.WriteLine("You do not have enough money to buy that amount of cups.");
                 PlayerBuyCup(player);
             }
         }
-
-        public void AddToMoney(double amountToAdd)
+        public double GetPlayerTotalExpense(double lemonExpense, double sugarExpense, double iceExpense, double cupExpense)
         {
-            //inventory.money += amountToAdd;
+            double totalExpense;
+            totalExpense = lemonExpense + sugarExpense + iceExpense + cupExpense;
+            return totalExpense;
         }
+        
 
         
     }

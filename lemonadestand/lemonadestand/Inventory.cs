@@ -10,6 +10,7 @@ namespace lemonadestand
     {
         public double money = 20.00;
         public List<List<Supply>> supplies;
+        public double profit;
 
         public Inventory()
         {
@@ -48,5 +49,32 @@ namespace lemonadestand
             Console.ReadKey();
             Console.Clear();
         }
+        
+        //public void AddToWallet()
+        //{
+        //    if (/*what customer bought > money*/)
+        //    {
+        //        //money += what customer bought 
+        //    }
+        //    else
+        //    {
+        //        //do nothing 
+        //    }
+        //}
+        //public void AddToProfit()
+        //{
+        //    if (what customer bought > money)
+        //    {
+        //        what customer bought - total of supplies bought by player
+        //    }
+        //    else 
+        //    {
+        //       do nothing
+        //    }
+        //}
+        //public void DisplayProfit()
+        //{
+        //    Console.WriteLine($"Your total profit is {variable that is equals to AddTotalProfit}");
+        //}
     }
 }

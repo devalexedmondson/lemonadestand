@@ -70,7 +70,6 @@ namespace lemonadestand
             }
             return lemon;
         }
-
         public int PickSugar(Player player)
         {
             Console.WriteLine("How much sugar would you like to put in your recipe?");

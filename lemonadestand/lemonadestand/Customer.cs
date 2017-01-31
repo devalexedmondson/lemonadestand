@@ -8,6 +8,8 @@ namespace lemonadestand
 {
     public class Customer
     {
+        public Demand demand;
+
         public Customer()
         {
 

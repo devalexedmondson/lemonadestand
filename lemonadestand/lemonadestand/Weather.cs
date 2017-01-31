@@ -30,9 +30,6 @@ namespace lemonadestand
                 case 3:
                     this.temperature = "Cold";
                     break;
-                //case 4:
-                //    this.temperature = "Frigid";
-                //    break;
                 default:
                     Console.WriteLine("There was an error getting the report");
                     break;
@@ -66,7 +63,7 @@ namespace lemonadestand
         }
         public void DisplayForecast()
         {
-            Console.WriteLine($"The weather for tomorrow: {temperature} {condition}\n");
+            Console.WriteLine($"The weather for tomorrow is: {temperature} {condition}\n");
         }
     }
 }

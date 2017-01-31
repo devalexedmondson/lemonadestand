@@ -38,6 +38,7 @@ namespace lemonadestand
             Console.Clear();
             player.inventory.DisplayInventory();
             runDay.GetTotalCustomers(rnd);
+
             
         }
 

@@ -8,6 +8,11 @@ namespace lemonadestand
 {
     public class Recipe
     {
+        public int lemon;
+        public int sugar;
+        public int ice;
+        public int cup;
+        public double lemonadePrice;
         public Recipe()
         {
 
@@ -15,8 +20,8 @@ namespace lemonadestand
         public void RecipeStart(Player player)
         {
             Console.WriteLine("RECIPE MAKER\n");
-            Console.WriteLine("Time to make your recipe! To make one cup of lemonade you need 2 lemons, 2 sugar, and 3 ice. Try changing up your recipe to see what works best for you and your customers. Remember, your recipe will affect how many customers will buy your product\n\n");
-            Console.WriteLine("What would you like to do: 'make' recipe, 'check' inventory, 'leave' store?");
+            Console.WriteLine("Time to make your recipe! To make one cup of lemonade you need 2 lemons, 2 sugar, and 3 ice. Try changing up your recipe to see what works best for you and your customers. Remember, your recipe will affect how many customers will buy your product. After you make your recipe set the price for each cup of lemonade.\n\n");
+            Console.WriteLine("What would you like to do: 'make' recipe, 'check' inventory,'leave' store?");
             string userInput = Console.ReadLine();
 
             switch (userInput)
@@ -29,6 +34,7 @@ namespace lemonadestand
                     int cup = PickCup(player);
                     player.inventory.DisplayInventory();
                     Console.Clear();
+                    PickLemonadePrice();
                     RecipeStart(player);
                     break;
 
@@ -36,7 +42,6 @@ namespace lemonadestand
                     player.inventory.DisplayInventory();
                     RecipeStart(player);
                     break;
-
                 case "leave":
 
                     break;
@@ -81,7 +86,6 @@ namespace lemonadestand
             }
             return ice;
         }
-
         public int PickCup(Player player)
         {
             Console.WriteLine("How many cups would you like to use for your recipe?");
@@ -91,6 +95,12 @@ namespace lemonadestand
                 player.inventory.supplies[3].RemoveAt(0);
             }
             return cup;
+        }
+        public double PickLemonadePrice()
+        {
+            Console.WriteLine("How much would you like to see your lemonade for?");
+            double lemonadeprice = double.Parse(Console.ReadLine());
+            return lemonadeprice;
         }
 
     }

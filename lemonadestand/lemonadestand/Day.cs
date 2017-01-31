@@ -21,8 +21,6 @@ namespace lemonadestand
             weather.GetTemp(rnd);
             weather.GetOvercast(rnd);
             weather.DisplayCurrentWeather();
-            
-            //each time a day is called
         }  
         public void GetForecast(Random rnd)
         {
@@ -30,7 +28,7 @@ namespace lemonadestand
             weather.GetOvercast(rnd);
             weather.DisplayForecast();
         }
-        public void GetTotalCustomers(Random rnd)
+        public void GetTotalCustomers(Random rnd)//customers that come out based on weather conditions
         {
             //int customerNumber = Int32.Parse("");
             if (weather.temperature == "Hot" && weather.condition == "and sunny")
@@ -105,32 +103,10 @@ namespace lemonadestand
                     customer.Add(new Customer());
                 }
             }
-            //else if (weather.temperature == "4" && weather.condition == "1")
-            //{
-            //    int customerNumber = rnd.Next(5, 11);
-            //    for (int i = 0; i < customerNumber; i++)
-            //    {
-            //        customer.Add(new Customer());
-            //    }
-            //}
-            //else if (weather.temperature == "4" && weather.condition == "2")
-            //{
-            //    int customerNumber = rnd.Next(0, 6);
-            //    for (int i = 0; i < customerNumber; i++)
-            //    {
-            //        customer.Add(new Customer());
-            //    }
-            //}
-            //else if (weather.temperature == "4" && weather.condition == "3")
-            //{
-            //    int customerNumber = rnd.Next(0, 2);
-            //    for (int i = 0; i < customerNumber; i++)
-            //    {
-            //        customer.Add(new Customer());
-            //    }
-            //}
         }
+        public void GetCustomersBuying()
+        {
 
-        
+        }
     }
 }

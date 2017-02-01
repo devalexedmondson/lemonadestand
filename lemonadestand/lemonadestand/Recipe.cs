@@ -32,8 +32,10 @@ namespace lemonadestand
                     CheckLemonInventory(player, lemon);
                     RemoveLemons(player, lemon);
                     int sugar = PickSugar();
+                    CheckSugarInventory(player, sugar);
                     RemoveSugar(player, sugar);
                     int ice = PickIce();
+                    CheckIceInventory(player, ice);
                     RemoveIce(player, ice);
                     player.inventory.DisplayInventory();
                     Console.Clear();
@@ -93,6 +95,16 @@ namespace lemonadestand
             int sugar = Int32.Parse(Console.ReadLine());
             return sugar;
         }
+        public bool CheckSugarInventory(Player player, int sugarCount)
+        {
+            if (player.inventory.supplies[0].Count < sugar)
+            {
+                Console.WriteLine("You do not have that much sugar!");
+
+                return false;
+            }
+            return true;
+        }
         public void RemoveSugar(Player player, int sugar)
         {
             for (int i = 0; i < sugar; i++)
@@ -105,6 +117,16 @@ namespace lemonadestand
             Console.WriteLine("How much ice would you like to put in your recipe?");
             int ice = Int32.Parse(Console.ReadLine());
             return ice;
+        }
+        public bool CheckIceInventory(Player player, int iceCount)
+        {
+            if (player.inventory.supplies[0].Count < iceCount)
+            {
+                Console.WriteLine("You do not have that much ice!");
+
+                return false;
+            }
+            return true;
         }
         public void RemoveIce(Player player, int ice)
         {

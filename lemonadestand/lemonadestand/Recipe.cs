@@ -28,9 +28,13 @@ namespace lemonadestand
             {
                 case "make":
                     player.inventory.DisplayInventory();
-                    int lemon = PickLemons(player);
-                    int sugar = PickSugar(player);
-                    int ice = PickIce(player);
+                    int lemon = PickLemons();
+                    CheckLemonInventory(player, lemon);
+                    RemoveLemons(player, lemon);
+                    int sugar = PickSugar();
+                    RemoveSugar(player, sugar);
+                    int ice = PickIce();
+                    RemoveIce(player, ice);
                     player.inventory.DisplayInventory();
                     Console.Clear();
                     RecipeStart(player);
@@ -60,35 +64,54 @@ namespace lemonadestand
                     break;
             }
         }
-        public int PickLemons(Player player)
+        public int PickLemons()
         {
             Console.WriteLine("How many lemons would you like to put in your recipe?");
             int lemon = Int32.Parse(Console.ReadLine());
+            return lemon;
+        }
+        public bool CheckLemonInventory(Player player, int lemonCount)
+        {
+            if (player.inventory.supplies[0].Count < lemonCount) 
+            {
+                Console.WriteLine("You do not have that many lemons!");
+                
+                return false;
+            }
+            return true;
+        }
+        public void RemoveLemons(Player player, int lemon)
+        { 
             for (int i = 0; i < lemon; i++)
             {
                 player.inventory.supplies[0].RemoveAt(0);
             }
-            return lemon;
         }
-        public int PickSugar(Player player)
+        public int PickSugar()
         {
             Console.WriteLine("How much sugar would you like to put in your recipe?");
             int sugar = Int32.Parse(Console.ReadLine());
-            for (int i = 0; i < sugar; i++)
-            {
-                player.inventory.supplies[1].RemoveAt(0);
-            }
             return sugar;
         }
-        public int PickIce(Player player)
+        public void RemoveSugar(Player player, int sugar)
+        {
+            for (int i = 0; i < sugar; i++)
+            {
+                player.inventory.supplies[0].RemoveAt(0);
+            }
+        }
+        public int PickIce()
         {
             Console.WriteLine("How much ice would you like to put in your recipe?");
             int ice = Int32.Parse(Console.ReadLine());
+            return ice;
+        }
+        public void RemoveIce(Player player, int ice)
+        {
             for (int i = 0; i < ice; i++)
             {
-                player.inventory.supplies[2].RemoveAt(0);
+                player.inventory.supplies[0].RemoveAt(0);
             }
-            return ice;
         }
         public double PickLemonadePrice()
         {

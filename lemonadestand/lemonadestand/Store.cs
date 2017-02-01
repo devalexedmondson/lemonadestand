@@ -58,6 +58,7 @@ namespace lemonadestand
         public int PlayerBuyLemon(Player player)
         {
             Console.WriteLine("How many lemons would you like to buy?");
+            
             int lemon = Int32.Parse(Console.ReadLine());
             for (int i = 0; i < lemon; i++)
             {

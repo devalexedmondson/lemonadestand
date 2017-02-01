@@ -21,16 +21,16 @@ namespace lemonadestand
                 case "buy":
                     Console.WriteLine("Decide how much of each supply you would like to buy. If you do not want to buy an item, type 0.\n\n PRICES:\n\nLemons: $.50\nSugar: $.25\nIce: $.50\nCups: $.25");
                     int lemon = PlayerBuyLemon(player);
-                    double lemonExpense = GetLemonExpense(lemon, player);
+                    double lemonExpense = GetLemonExpense(lemon);
                     WithdrawLemonMoney(player, lemonExpense);
                     int sugar = PlayerBuySugar(player);
-                    double sugarExpense = GetSugarExpense(sugar, player);
+                    double sugarExpense = GetSugarExpense(sugar);
                     WithdrawSugarMoney(player, sugarExpense);
                     int ice = PlayerBuyIce(player);
-                    double iceExpense = GetIceExpense(ice, player);
+                    double iceExpense = GetIceExpense(ice);
                     WithdrawIceMoney(player, iceExpense);
                     int cup = PlayerBuyCup(player);
-                    double cupExpense = GetCupExpense(cup, player);
+                    double cupExpense = GetCupExpense(cup);
                     WithdrawCupMoney(player, cupExpense);
                     player.inventory.DisplayInventory();
                     GetPlayerTotalExpense(lemonExpense, sugarExpense, iceExpense, cupExpense);
@@ -65,7 +65,7 @@ namespace lemonadestand
             }
             return lemon;
         }
-        public double GetLemonExpense(int lemon, Player player)
+        public double GetLemonExpense(int lemon)
         {
             double expense;
             expense = lemon * new Lemon().price;
@@ -93,7 +93,7 @@ namespace lemonadestand
             }
             return sugar;
         }
-        public double GetSugarExpense(int sugar, Player player)
+        public double GetSugarExpense(int sugar)
         {
             double expense;
             expense = sugar * new Sugar().price;
@@ -121,7 +121,7 @@ namespace lemonadestand
             }
             return ice;
         }
-        public double GetIceExpense(int ice, Player player)
+        public double GetIceExpense(int ice)
         {
             double expense;
             expense = ice * new Ice().price;
@@ -150,7 +150,7 @@ namespace lemonadestand
             }
             return cup;
         }
-        public double GetCupExpense(int cup, Player player)
+        public double GetCupExpense(int cup)
         {
             double expense; 
             expense = cup * new Cup().price;

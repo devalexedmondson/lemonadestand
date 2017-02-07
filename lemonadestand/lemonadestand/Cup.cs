@@ -10,15 +10,8 @@ namespace lemonadestand
     {
         public Cup()
         {
-            this.price = .25;
-        }
-        public void SetName()
-        {
-            name = "cup";
-        }
-        public void SetPrice()
-        {
             price = .25;
+            name = "cup";
         }
     }
 }

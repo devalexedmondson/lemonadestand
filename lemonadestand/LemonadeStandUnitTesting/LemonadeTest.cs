@@ -37,13 +37,13 @@ namespace LemonadeStandUnitTesting
         public void AddOneLemonToList()
         {
             //Arrange
-            Inventory add = new Inventory();
+            Inventory inventory = new Inventory();
             Lemon lemon = new Lemon();
             int lemonCount = 1;
             //Act
-            add.AddLemon(lemon);
+            inventory.AddLemon(lemon);
             //Assert
-            Assert.AreEqual(lemonCount, add.supplies[0].Count);
+            Assert.AreEqual(lemonCount, inventory.supplies[0].Count);
         }
         [TestMethod]
         public void AddOneSugarToList()

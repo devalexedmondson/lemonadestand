@@ -8,18 +8,10 @@ namespace lemonadestand
 {
     public class Lemon : Supply
     {
-        
         public Lemon()
         {
-            this.price = .50;
-        }
-        public void SetName()
-        {
+           price = .30;
             name = "lemon";
-        }
-        public void SetPrice()
-        {
-            price = .50;
         }
     }
 }

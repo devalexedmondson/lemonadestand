@@ -28,13 +28,13 @@ namespace lemonadestand
             {
                 case "make":
                     player.inventory.DisplayInventory();
-                    int lemon = PickLemons();
+                    lemon = PickLemons();
                     CheckLemonInventory(player, lemon);
                     RemoveLemons(player, lemon);
-                    int sugar = PickSugar();
+                    sugar = PickSugar();
                     CheckSugarInventory(player, sugar);
                     RemoveSugar(player, sugar);
-                    int ice = PickIce();
+                    ice = PickIce();
                     CheckIceInventory(player, ice);
                     RemoveIce(player, ice);
                     player.inventory.DisplayInventory();
@@ -47,11 +47,11 @@ namespace lemonadestand
                     RecipeStart(player);
                     break;
                 case "set":
-                    DisplayRecipe();
+                    DisplayRecipe(lemon, sugar, ice);
                     PickLemonadePrice();
                     return;
                 case "display":
-                    DisplayRecipe();
+                    DisplayRecipe(lemon,  sugar, ice);
                     RecipeStart(player);
                     break;
                 case "leave":
@@ -72,13 +72,13 @@ namespace lemonadestand
             int lemon = Int32.Parse(Console.ReadLine());
             return lemon;
         }
-        public bool CheckLemonInventory(Player player, int lemonCount)
-        {
-            if (player.inventory.supplies[0].Count < lemonCount) 
+        public bool CheckLemonInventory(Player player, int lemon)
+        {//program will catch the user the first time and no matter what number is entered the second time, will throw error. 
+            if (player.inventory.supplies[0].Count < lemon) 
             {
                 Console.WriteLine("You do not have that many lemons!");
                 
-                return false;
+                PickLemons();
             }
             return true;
         }
@@ -96,7 +96,7 @@ namespace lemonadestand
             return sugar;
         }
         public bool CheckSugarInventory(Player player, int sugarCount)
-        {
+        {//program will catch the user the first time and no matter what number is entered the second time, will throw error.
             if (player.inventory.supplies[0].Count < sugar)
             {
                 Console.WriteLine("You do not have that much sugar!");
@@ -109,7 +109,7 @@ namespace lemonadestand
         {
             for (int i = 0; i < sugar; i++)
             {
-                player.inventory.supplies[0].RemoveAt(0);
+                player.inventory.supplies[1].RemoveAt(0);
             }
         }
         public int PickIce()
@@ -119,7 +119,7 @@ namespace lemonadestand
             return ice;
         }
         public bool CheckIceInventory(Player player, int iceCount)
-        {
+        {//program will catch the user the first time and no matter what number is entered the second time, will throw error.
             if (player.inventory.supplies[0].Count < iceCount)
             {
                 Console.WriteLine("You do not have that much ice!");
@@ -132,18 +132,18 @@ namespace lemonadestand
         {
             for (int i = 0; i < ice; i++)
             {
-                player.inventory.supplies[0].RemoveAt(0);
+                player.inventory.supplies[2].RemoveAt(0);
             }
         }
         public double PickLemonadePrice()
         {
             Console.WriteLine("How much would you like to sell each cup of your lemonade for?");
-            double lemonadeprice = double.Parse(Console.ReadLine());
-            return lemonadeprice;
+            lemonadePrice = double.Parse(Console.ReadLine());
+            return lemonadePrice;
         }
-        public void DisplayRecipe()
+        public void DisplayRecipe(int lemon, int sugar, int ice)
         {
-            Console.WriteLine($"Your current recipe includes: \n{lemon}: Lemons \n{sugar}: Sugar \n{ice}: Ice");
+            Console.WriteLine($"Your current recipe includes: \nLemons: {lemon}  \nSugar: {sugar} \nIce: {ice}");
             Console.ReadKey();
             Console.Clear();
         }

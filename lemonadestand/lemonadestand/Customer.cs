@@ -16,9 +16,11 @@ namespace lemonadestand
         }
         public void BuyLemonade(Demand demand)
         {
+            
             if (demand.priceDemand == 3)
             {
-                //buy all of the lemonade 
+                //Player.inventory.supplies[3]
+                //take from the list of lemonade
             }
             else if (demand.priceDemand == 2)
             {

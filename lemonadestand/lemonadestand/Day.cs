@@ -104,5 +104,18 @@ namespace lemonadestand
                 }
             }
         }
+        public void EndOfDay(Player player, int totalLoss)
+        {
+            if (totalLoss >= player.inventory.money)
+            {
+                Console.WriteLine("You have no more money! Game over!");
+                //option to play again
+            }
+            else
+            {
+                //add profit
+                day++;
+            }
+        }
     }
 }

@@ -10,15 +10,11 @@ namespace lemonadestand
     {
         public string choice;
         public Inventory inventory;
-        
+
 
         public Player()
         {
             inventory = new Inventory();
         }
-
-        
-
-       
     }
 }

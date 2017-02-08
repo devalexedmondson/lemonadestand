@@ -19,7 +19,7 @@ namespace lemonadestand
             switch (userInput)
             {
                 case "buy":
-                    Console.WriteLine("Decide how much of each supply you would like to buy. If you do not want to buy an item, type 0.\n\n PRICES:\n\nLemons: $.10\nSugar: $.25\nIce: $.15\nCups: $.25");
+                    Console.WriteLine("Decide how much of each supply you would like to buy. If you do not want to buy an item, type 0.\n\n PRICES:\n\nLemons: $.15\nSugar: $.05\nIce: $.05\nCups: $.10\n\n");
                     int lemon = PlayerBuyLemon(player);
                     double lemonExpense = GetLemonExpense(lemon);
                     WithdrawLemonMoney(player, lemonExpense);
@@ -37,7 +37,7 @@ namespace lemonadestand
                     WithdrawCupMoney(player, cupExpense);
                     AddCupToInventory(player, cup);
                     player.inventory.DisplayInventory();
-                    GetPlayerTotalExpense(lemonExpense, sugarExpense, iceExpense, cupExpense);
+                   // GetPlayerTotalExpense(lemonExpense, sugarExpense, iceExpense, cupExpense);
                     Console.Clear();
                     StoreStart(player);
                     break;
@@ -62,7 +62,7 @@ namespace lemonadestand
         public int PlayerBuyLemon(Player player)
         {
             Console.WriteLine("How many lemons would you like to buy?");
-            int lemon = Int32.Parse(Console.ReadLine());
+            int lemon = int.Parse(Console.ReadLine());
             return lemon;
         }
         public double GetLemonExpense(int lemon)
@@ -93,7 +93,7 @@ namespace lemonadestand
         public int PlayerBuySugar(Player player)
         {
             Console.WriteLine("How much sugar would you like to buy?");
-            int sugar = Int32.Parse(Console.ReadLine());
+            int sugar = int.Parse(Console.ReadLine());
             return sugar;
         }
         public double GetSugarExpense(int sugar)
@@ -124,7 +124,7 @@ namespace lemonadestand
         public int PlayerBuyIce(Player player)
         {
             Console.WriteLine("How much ice would you like to buy?");
-            int ice = Int32.Parse(Console.ReadLine());
+            int ice = int.Parse(Console.ReadLine());
             return ice;
         }
         public double GetIceExpense(int ice)
@@ -155,7 +155,7 @@ namespace lemonadestand
         public int PlayerBuyCup(Player player)
         {
             Console.WriteLine("How many cups would you like to buy?");
-            int cup = Int32.Parse(Console.ReadLine());
+            int cup = int.Parse(Console.ReadLine());
             return cup;
         }
         public double GetCupExpense(int cup)
@@ -183,11 +183,11 @@ namespace lemonadestand
                 player.inventory.AddCup(new Cup());
             }
         }
-        public double GetPlayerTotalExpense(double lemonExpense, double sugarExpense, double iceExpense, double cupExpense)
-        {
-            double totalExpense;
-            totalExpense = lemonExpense + sugarExpense + iceExpense + cupExpense;
-            return totalExpense;
-        }
+        //public double GetPlayerTotalExpense(double lemonExpense, double sugarExpense, double iceExpense, double cupExpense)
+        //{
+        //    double totalExpense;
+        //    totalExpense = lemonExpense + sugarExpense + iceExpense + cupExpense;
+        //    return totalExpense;
+        //}
     }
 }

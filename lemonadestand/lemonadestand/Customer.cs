@@ -19,7 +19,7 @@ namespace lemonadestand
             
             if (demand.priceDemand == 3)
             {
-                //Player.inventory.supplies[3]
+                //buy all lemonade
                 //take from the list of lemonade
             }
             else if (demand.priceDemand == 2)

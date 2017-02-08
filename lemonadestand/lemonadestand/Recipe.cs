@@ -20,7 +20,7 @@ namespace lemonadestand
         public void RecipeStart(Player player)
         {
             Console.WriteLine("RECIPE MAKER\n");
-            Console.WriteLine("Time to make your recipe! To make one cup of lemonade you need 1 lemons, 2 sugar, and 3 ice. Try changing up your recipe to see what works best for you and your customers. Remember, the weather will affect how many customers are out that day, and your recipe will affect how many customers will buy your product. MAKE YOUR RECIPE AND THEN MAKE SURE TO SET THE PRICE FOR EACH CUP. \n\n");
+            Console.WriteLine("Time to make your recipe for the day! A basic lemonade recipe calls for 1 lemon, 2 sugars, and 2 ice, in one cup. You will be deciding how much of each ingredient to put in each individual cup and then you will decide how many cups to sell that day. Remember, the weather and the price will affect how many customers buy your lemonade. First, make your recipe, then make sure to set your price.\n\n");
             Console.WriteLine("What would you like to do: 'make' recipe, 'check' inventory, 'set' lemonade price, 'display' recipe, 'leave'?");
             string userInput = Console.ReadLine();
 
@@ -30,14 +30,25 @@ namespace lemonadestand
                     player.inventory.DisplayInventory();
                     lemon = PickLemons();
                     CheckLemonInventory(player, lemon);
-                    RemoveLemons(player, lemon);
                     sugar = PickSugar();
                     CheckSugarInventory(player, sugar);
-                    RemoveSugar(player, sugar);
                     ice = PickIce();
                     CheckIceInventory(player, ice);
-                    RemoveIce(player, ice);
+                    cup = PickCup();
+                    CheckCupInventory(player, cup);
+                    int totalLemon = CalculateLemonUse(lemon, cup);
+                    CheckLemonInventory(player, totalLemon);
+                    int totalSugar = CalculateSugarUse(sugar, cup);
+                    CheckSugarInventory(player, totalLemon);
+                    int totalIce = CalculateIceUse(ice, cup);
+                    CheckIceInventory(player, totalIce);
+                    RemoveLemons(player, totalLemon);
+                    RemoveSugar(player, totalSugar);
+                    RemoveIce(player, totalIce);
+                    RemoveCup(player, cup);
+                    MakeLemonade(player, cup);
                     player.inventory.DisplayInventory();
+
                     Console.Clear();
                     RecipeStart(player);
                     break;
@@ -69,8 +80,8 @@ namespace lemonadestand
         }
         public int PickLemons()
         {
-            Console.WriteLine("How many lemons would you like to put in your recipe?");
-            int lemon = Int32.Parse(Console.ReadLine());
+            Console.WriteLine("How many lemons would you like to put in your each cup?");
+            lemon = int.Parse(Console.ReadLine());
             return lemon;
         }
         public bool CheckLemonInventory(Player player, int lemon)
@@ -82,17 +93,10 @@ namespace lemonadestand
             }
             return true;
         }
-        public void RemoveLemons(Player player, int lemon)
-        { 
-            for (int i = 0; i < lemon; i++)
-            {
-                player.inventory.supplies[0].RemoveAt(0);
-            }
-        }
         public int PickSugar()
         {
-            Console.WriteLine("How much sugar would you like to put in your recipe?");
-            int sugar = int.Parse(Console.ReadLine());
+            Console.WriteLine("\nHow much sugar would you like to put in each cup?");
+            sugar = int.Parse(Console.ReadLine());
             return sugar;
         }
         public bool CheckSugarInventory(Player player, int sugarCount)
@@ -104,17 +108,10 @@ namespace lemonadestand
             }
             return true;
         }
-        public void RemoveSugar(Player player, int sugar)
-        {
-            for (int i = 0; i < sugar; i++)
-            {
-                player.inventory.supplies[1].RemoveAt(0);
-            }
-        }
         public int PickIce()
         {
-            Console.WriteLine("How much ice would you like to put in your recipe?");
-            int ice = int.Parse(Console.ReadLine());
+            Console.WriteLine("\nHow much ice would you like to put in each cup?");
+            ice = int.Parse(Console.ReadLine());
             return ice;
         }
         public bool CheckIceInventory(Player player, int iceCount)
@@ -126,29 +123,11 @@ namespace lemonadestand
             }
             return true;
         }
-        public void RemoveIce(Player player, int ice)
+        public int PickCup()
         {
-            for (int i = 0; i < ice; i++)
-            {
-                player.inventory.supplies[2].RemoveAt(0);
-            }
-        }
-        public double PickLemonadePrice()
-        {
-            Console.WriteLine("How much would you like to sell each cup of your lemonade for?");
-            lemonadePrice = double.Parse(Console.ReadLine());
-            return lemonadePrice;
-        }
-        public void DisplayRecipe(int lemon, int sugar, int ice)
-        {
-            Console.WriteLine($"Your current recipe includes: \nLemons: {lemon}  \nSugar: {sugar} \nIce: {ice}");
-            Console.ReadKey();
-            Console.Clear();
-        }
-        public void PickCup()
-        {
-            Console.WriteLine("How many cups of lemonade would you like to make?");
-            int madeCups = int.Parse(Console.ReadLine());
+            Console.WriteLine("\nHow many cups of lemonade would you like to make?");
+             cup = int.Parse(Console.ReadLine());
+            return cup;
         }
         public bool CheckCupInventory(Player player, int cupCount)
         {//program will catch the user the first time and no matter what number is entered the second time, will throw error.
@@ -159,23 +138,72 @@ namespace lemonadestand
             }
             return true;
         }
+        public int CalculateLemonUse(int lemon, int cup)
+        {
+            int totalLemons = lemon * cup;
+            return totalLemons;
+        }
+        public int CalculateSugarUse(int sugar, int cup)
+        {
+            int totalSugar = sugar * cup;
+            return totalSugar;
+        }
+        public int CalculateIceUse(int ice, int cup)
+        {
+            int totalIce = ice * cup;
+            return totalIce;
+        }
+        public void RemoveLemons(Player player, int lemon)
+        {
+            for (int i = 0; i < lemon; i++)
+            {
+                player.inventory.supplies[0].RemoveAt(0);
+            }
+        }
+        public void RemoveSugar(Player player, int sugar)
+        {
+            for (int i = 0; i < sugar; i++)
+            {
+                player.inventory.supplies[1].RemoveAt(0);
+            }
+        }
+        public void RemoveIce(Player player, int ice)
+        {
+            for (int i = 0; i < ice; i++)
+            {
+                player.inventory.supplies[2].RemoveAt(0);
+            }
+        }
+        public void RemoveCup(Player player, int cup)
+        {
+            for (int i = 0; i < cup; i++)
+            {
+                player.inventory.supplies[3].RemoveAt(0);
+            }
+        }
+       public void MakeLemonade(Player player, int cup)
+        {
+            for (int i = 0; i < cup; i ++)
+            {
+                player.inventory.AddLemonade(new Lemonade());
+            }
+        }
+        public double PickLemonadePrice()
+        {
+            Console.WriteLine("How much would you like to sell each cup of your lemonade for?");
+            lemonadePrice = double.Parse(Console.ReadLine());
+            return lemonadePrice;
+        }
+        public void DisplayRecipe(int lemon, int sugar, int ice)
+        {
+            Console.WriteLine($"Your current recipe includes *(each number represents the amount of the item in each cup): \nLemons: {lemon}  \nSugar: {sugar} \nIce: {ice}");
+            Console.ReadKey();
+            Console.Clear();
+        }
         public void MakeLemonade(int lemon, int sugar, int ice, int cup, Player player)
         {
-
+            //ask how many of each ingredient they want to put into each cup
+            //multiply the number of ingredients selected 
         }
-        //public void MakeLemonade(int lemon, int sugar, int ice, int cup, Player player)
-        //{//make lemonade w/ equation
-        //    //for every 1 lemon, 2 sugars, and 3 ice, make one cup of lemonade
-        //    //take those cups away from inventory list 
-        //    //add items that were not used back into inventory or let them go to waste
-        //    for (int i = 0; i < player.inventory.supplies[3].Count; i++)
-        //    {
-               
-        //        if ()
-        //        {
-        //            player.inventory.supplies[3].RemoveAt(0);
-        //        }
-        //    }
-        //}
     }
 }

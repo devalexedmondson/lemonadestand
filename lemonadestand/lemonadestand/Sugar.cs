@@ -10,7 +10,7 @@ namespace lemonadestand
     {
         public Sugar()
         {
-            price = .25;
+            price = .05;
             name = "sugar";
         }
     }

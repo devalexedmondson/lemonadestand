@@ -15,6 +15,7 @@ namespace lemonadestand
         public Recipe recipe;
         public Random rnd;
         public Demand demand;
+        
        public Game()
         {
             player = new Player();
@@ -42,11 +43,23 @@ namespace lemonadestand
             player.inventory.DisplayInventory();
             runDay.GetTotalCustomers(rnd);
             demand.GetCustomersBuying(recipe);
-            runDay.customer[0].BuyLemonade(demand,player);//Check method to make sure that it is taking correct number 
+            player.SellLemonade(demand);
             player.inventory.DisplayInventory();
-            
-                
+            double dayEarning = runDay.CalculateDaysEarnings(player,recipe);
+            double dayProfit = runDay.CalculateDayProfit(dayEarning,store);
+            double totalProfit = CalculateTotalProfit(dayProfit);
+            DisplayTotalProfit(totalProfit);
+            player.CheckSpoilInventory();
             NewDay();
+        }
+        public double CalculateTotalProfit(double dayProfit)
+        {
+            double totalprofit = dayProfit += ;
+            return totalprofit;
+        }
+        public void DisplayTotalProfit(double totalProfit)
+        {
+            Console.WriteLine($"Your total profit is: ${totalProfit}!");
         }
         public void NewDay()
         {
@@ -54,10 +67,8 @@ namespace lemonadestand
             {
                 if (runDay.day <= 7)
                 {
-                    player.inventory.DisplayInventory();
                     store.StoreStart(player);
                     Console.Clear();
-                    runDay.DisplayDay();
                     runDay.GetWeather(rnd);
                     runDay.GetForecast(rnd);
                     recipe.RecipeStart(player);
@@ -65,8 +76,14 @@ namespace lemonadestand
                     player.inventory.DisplayInventory();
                     runDay.GetTotalCustomers(rnd);
                     demand.GetCustomersBuying(recipe);
-                    runDay.customer[0].BuyLemonade(demand, player);//Check method to make sure that it is taking correct number 
+                    player.SellLemonade(demand);
                     player.inventory.DisplayInventory();
+                    double dayEarning = runDay.CalculateDaysEarnings(player, recipe);
+                    double dayProfit = runDay.CalculateDayProfit(dayEarning, store);
+                    double totalProfit = CalculateTotalProfit(dayProfit);
+                    DisplayTotalProfit(totalProfit);
+                    player.CheckSpoilInventory();
+                    NewDay();
                 }
                 else if (i > 7)
                 {

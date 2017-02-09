@@ -53,16 +53,6 @@ namespace lemonadestand
         {
             supplies[4].Add(lemonade);
         }
-        public void CheckSpoilInventory(Player player)
-        {
-            for (int i = 0; i < player.inventory.supplies[4].Count; i++)
-            {
-                if (supplies[4].Count > 0)
-                {
-                    player.inventory.supplies[4].RemoveAt(0);
-                }
-            }
-        }
         public void DisplayInventory()
         {
             Console.WriteLine($"Your current inventory:\n\n Money: ${money}\n Lemons: {supplies[0].Count}\n Sugar: {supplies[1].Count}\n Ice: {supplies[2].Count}\n Empty Cups: {supplies[3].Count}\n Cups of Lemonade: {supplies[4].Count}\n");

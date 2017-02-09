@@ -11,6 +11,8 @@ namespace lemonadestand
         public Weather weather;
         public int day;
         public List<Customer> customer;
+        public double dayEarning;
+        public double dayProfit;
 
         public Day()
         {
@@ -38,7 +40,7 @@ namespace lemonadestand
         {
             if (weather.temperature == "Hot" && weather.condition == "and sunny")
             {
-                int customerNumber = rnd.Next(25, 30);
+                int customerNumber = rnd.Next(35, 40);
                 for (int i = 0; i < customerNumber; i++)
                 {
                     customer.Add(new Customer());
@@ -46,7 +48,7 @@ namespace lemonadestand
             }
             else if (weather.temperature == "Hot" && weather.condition == "and cloudy")
             {
-                int customerNumber = rnd.Next(20,26);
+                int customerNumber = rnd.Next(30,34);
                 for (int i = 0; i < customerNumber; i++)
                 {
                     customer.Add(new Customer());
@@ -54,7 +56,7 @@ namespace lemonadestand
             }
             else if (weather.temperature == "Hot" && weather.condition == "with thunderstorms")
             {
-                int customerNumber = rnd.Next(10, 16);
+                int customerNumber = rnd.Next(20, 29);
                 for (int i = 0; i < customerNumber; i++)
                 {
                     customer.Add(new Customer());
@@ -62,7 +64,7 @@ namespace lemonadestand
             }
             else if (weather.temperature == "Warm" && weather.condition == "and sunny")
             {
-                int customerNumber = rnd.Next(15, 21);
+                int customerNumber = rnd.Next(25, 31);
                 for (int i = 0; i < customerNumber; i++)
                 {
                     customer.Add(new Customer());
@@ -70,7 +72,7 @@ namespace lemonadestand
             }
             else if (weather.temperature == "Warm" && weather.condition == "and cloudy")
             {
-                int customerNumber = rnd.Next(10, 16);
+                int customerNumber = rnd.Next(20, 24);
                 for (int i = 0; i < customerNumber; i++)
                 {
                     customer.Add(new Customer());
@@ -78,7 +80,7 @@ namespace lemonadestand
             }
             else if (weather.temperature == "Warm" && weather.condition == "with thunderstorms")
             {
-                int customerNumber = rnd.Next(5, 11);
+                int customerNumber = rnd.Next(15, 19);
                 for (int i = 0; i < customerNumber; i++)
                 {
                     customer.Add(new Customer());
@@ -94,7 +96,7 @@ namespace lemonadestand
             }
             else if (weather.temperature == "Cold" && weather.condition == "and cloudy")
             {
-                int customerNumber = rnd.Next(0, 6);
+                int customerNumber = rnd.Next(0, 10);
                 for (int i = 0; i < customerNumber; i++)
                 {
                     customer.Add(new Customer());
@@ -102,31 +104,22 @@ namespace lemonadestand
             }
             else if (weather.temperature == "Cold" && weather.condition == "with thunderstorms")
             {
-                int customerNumber = rnd.Next(0, 2);
+                int customerNumber = rnd.Next(0, 4);
                 for (int i = 0; i < customerNumber; i++)
                 {
                     customer.Add(new Customer());
                 }
             }
         }
-
-        public void GenerateCustomers()
-        {
-           
+        public double CalculateDaysEarnings(Player player, Recipe recipe)
+        {//price of lemonade * amount bought by customer
+            dayEarning = recipe.lemonadePrice * player.soldInventory;
+            return dayEarning;
         }
-       
-        public void EndOfDay(Player player, int totalLoss)
+        public double CalculateDayProfit(double dayEarning, Store store)
         {
-            if (totalLoss >= player.inventory.money)
-            {
-                Console.WriteLine("You have no more money! Game over!");
-                //option to play again
-            }
-            else
-            {
-                //add profit
-                day++;
-            }
+            dayProfit = dayEarning - store.totalExpense;
+            return dayProfit;
         }
     }
 }

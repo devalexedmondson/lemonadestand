@@ -8,6 +8,7 @@ namespace lemonadestand
 {
     public class Store
     {
+        public double totalExpense;
         public Store()
         {
         }
@@ -38,7 +39,7 @@ namespace lemonadestand
                     WithdrawCupMoney(player, cupExpense);
                     AddCupToInventory(player, cup);
                     player.inventory.DisplayInventory();
-                   // GetPlayerTotalExpense(lemonExpense, sugarExpense, iceExpense, cupExpense);
+                    GetPlayerTotalExpense(lemonExpense, sugarExpense, iceExpense, cupExpense);
                     Console.Clear();
                     StoreStart(player);
                     break;
@@ -185,11 +186,11 @@ namespace lemonadestand
                 player.inventory.AddCup(new Cup());
             }
         }
-        //public double GetPlayerTotalExpense(double lemonExpense, double sugarExpense, double iceExpense, double cupExpense)
-        //{
-        //    double totalExpense;
-        //    totalExpense = lemonExpense + sugarExpense + iceExpense + cupExpense;
-        //    return totalExpense;
-        //}
+        public double GetPlayerTotalExpense(double lemonExpense, double sugarExpense, double iceExpense, double cupExpense)
+        {
+            double totalExpense;
+            totalExpense = lemonExpense + sugarExpense + iceExpense + cupExpense;
+            return totalExpense;
+        }
     }
 }

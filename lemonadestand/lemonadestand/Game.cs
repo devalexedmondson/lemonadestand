@@ -14,6 +14,7 @@ namespace lemonadestand
         public Store store;
         public Recipe recipe;
         public Random rnd;
+        public Demand demand;
        public Game()
         {
             player = new Player();
@@ -22,12 +23,15 @@ namespace lemonadestand
             store = new Store();
             recipe = new Recipe();
             rnd = new Random();
+            demand = new Demand();
+
 
         }
         public void RunGame()
         {
             UI.WelcomePlayer();
             Console.Clear();
+            runDay.DisplayDay();
             player.inventory.DisplayInventory();
             store.StoreStart(player);
             Console.Clear();
@@ -37,28 +41,37 @@ namespace lemonadestand
             Console.Clear();
             player.inventory.DisplayInventory();
             runDay.GetTotalCustomers(rnd);
-
+            demand.GetCustomersBuying(recipe);
+            runDay.customer[0].BuyLemonade(demand,player);//Check method to make sure that it is taking correct number 
+            player.inventory.DisplayInventory();
+            
+                
             NewDay();
         }
         public void NewDay()
         {
-            for (int i = 0; i < 7; i++)
+            for (int i = 1; i < 7; i++)
             {
                 if (runDay.day <= 7)
                 {
                     player.inventory.DisplayInventory();
                     store.StoreStart(player);
                     Console.Clear();
+                    runDay.DisplayDay();
                     runDay.GetWeather(rnd);
                     runDay.GetForecast(rnd);
                     recipe.RecipeStart(player);
                     Console.Clear();
                     player.inventory.DisplayInventory();
                     runDay.GetTotalCustomers(rnd);
+                    demand.GetCustomersBuying(recipe);
+                    runDay.customer[0].BuyLemonade(demand, player);//Check method to make sure that it is taking correct number 
+                    player.inventory.DisplayInventory();
                 }
-                else
+                else if (i > 7)
                 {
                     Console.WriteLine("Congrats on making it through a whole week with your lemonade stand!");
+                    Console.ReadKey();
                     player.inventory.DisplayInventory();
                     //add option to play again
                 }

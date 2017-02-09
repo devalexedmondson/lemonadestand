@@ -17,19 +17,19 @@ namespace lemonadestand
         }
         public int GetCustomersBuying(Recipe recipe)
         {
-            if (recipe.lemonadePrice <= 1.00)
+            if (recipe.lemonadePrice <= .50)
             {
                 priceDemand = 3;
             }
-            else if (recipe.lemonadePrice >= 1.01 && recipe.lemonadePrice <= 1.50)
+            else if (recipe.lemonadePrice >= .51 && recipe.lemonadePrice <= .75)
             {
                 priceDemand = 2;
             }
-            else if (recipe.lemonadePrice >= 1.51 && recipe.lemonadePrice <= 2.00)
+            else if (recipe.lemonadePrice >= .76 && recipe.lemonadePrice <= 1.00)
             {
                 priceDemand = 1;
             }
-            else if (recipe.lemonadePrice >= 2.01)
+            else if (recipe.lemonadePrice >= 1.01)
             {
                 priceDemand = 0;
             }

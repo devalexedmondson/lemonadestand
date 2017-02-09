@@ -13,6 +13,7 @@ namespace lemonadestand
         }
         public void StoreStart(Player player)
         {
+            Console.WriteLine("STORE");
             Console.WriteLine("Welcome to the store! While you are here you can buy the necessary items to make your lemonade. What would you like to do:'buy' ingredients, 'check' inventory, 'leave' store?");
             string userInput = Console.ReadLine();
 
@@ -44,6 +45,7 @@ namespace lemonadestand
 
                 case "check":
                     player.inventory.DisplayInventory();
+                    Console.Clear();
                     StoreStart(player);
                     break;
 

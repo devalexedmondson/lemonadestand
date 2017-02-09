@@ -48,22 +48,21 @@ namespace lemonadestand
                     RemoveCup(player, cup);
                     MakeLemonade(player, cup);
                     player.inventory.DisplayInventory();
-
                     Console.Clear();
                     RecipeStart(player);
                     break;
 
                 case "check":
                     player.inventory.DisplayInventory();
+                    Console.Clear();
                     RecipeStart(player);
                     break;
                 case "set":
-                    DisplayRecipe(lemon, sugar, ice);
+                    DisplayRecipe(lemon, sugar, ice, cup);
                     PickLemonadePrice();
                     return;
                 case "display":
-                    DisplayRecipe(lemon,  sugar, ice);
-                    MakeLemonade(lemon, sugar, ice, cup, player);
+                    DisplayRecipe(lemon,  sugar, ice, cup);
                     RecipeStart(player);
                     break;
                 case "leave":
@@ -194,16 +193,11 @@ namespace lemonadestand
             lemonadePrice = double.Parse(Console.ReadLine());
             return lemonadePrice;
         }
-        public void DisplayRecipe(int lemon, int sugar, int ice)
+        public void DisplayRecipe(int lemon, int sugar, int ice, int cup)
         {
-            Console.WriteLine($"Your current recipe includes *(each number represents the amount of the item in each cup): \nLemons: {lemon}  \nSugar: {sugar} \nIce: {ice}");
+            Console.WriteLine($"Your current recipe includes *(each number represents the amount of the item in each cup): \n Lemons: {lemon}  \n Sugar: {sugar} \nIce: {ice}\n Cups of Lemonade: {cup}\n");
             Console.ReadKey();
             Console.Clear();
-        }
-        public void MakeLemonade(int lemon, int sugar, int ice, int cup, Player player)
-        {
-            //ask how many of each ingredient they want to put into each cup
-            //multiply the number of ingredients selected 
         }
     }
 }

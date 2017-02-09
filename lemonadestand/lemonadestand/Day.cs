@@ -14,6 +14,7 @@ namespace lemonadestand
 
         public Day()
         {
+            day = 1;
             weather = new Weather();
             customer = new List<Customer>();
         }
@@ -28,6 +29,10 @@ namespace lemonadestand
             weather.GetTemp(rnd);
             weather.GetOvercast(rnd);
             weather.DisplayForecast();
+        }
+        public void DisplayDay()
+        {
+            Console.WriteLine($"Today is Day {day}");
         }
         public void GetTotalCustomers(Random rnd)//customers that come out based on weather conditions
         {
@@ -104,6 +109,12 @@ namespace lemonadestand
                 }
             }
         }
+
+        public void GenerateCustomers()
+        {
+           
+        }
+       
         public void EndOfDay(Player player, int totalLoss)
         {
             if (totalLoss >= player.inventory.money)

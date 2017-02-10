@@ -22,9 +22,8 @@ namespace lemonadestand
             {
                 case "buy":
                     Console.WriteLine("Decide how much of each supply you would like to buy. If you do not want to buy an item, type 0.\n\n PRICES:\n\nLemons: $.15\nSugar: $.05\nIce: $.05\nCups: $.10\n\n");
+                    player.inventory.DisplayInventory();
                     int lemon = PlayerBuyLemon(player);
-                    double lemonExpense = GetLemonExpense(lemon);
-                    WithdrawLemonMoney(player, lemonExpense);
                     AddLemonToInventory(player, lemon);
                     int sugar = PlayerBuySugar(player);
                     double sugarExpense = GetSugarExpense(sugar);
@@ -39,7 +38,7 @@ namespace lemonadestand
                     WithdrawCupMoney(player, cupExpense);
                     AddCupToInventory(player, cup);
                     player.inventory.DisplayInventory();
-                    GetPlayerTotalExpense(lemonExpense, sugarExpense, iceExpense, cupExpense);
+                    GetPlayerTotalExpense(lemon * new Lemon().price, sugar * new Sugar().price, ice * new Ice().price, cup * new Cup().price);
                     Console.Clear();
                     StoreStart(player);
                     break;
@@ -51,16 +50,16 @@ namespace lemonadestand
                     break;
 
                 case "leave":
-                    if (player.inventory.supplies[3].Count > 0)
+                    if ((player.inventory.supplies[0].Count <= 0) || (player.inventory.supplies[1].Count) <= 0 || (player.inventory.supplies[2].Count <= 0) || (player.inventory.supplies[3].Count <= 0))
                     {
-                        return;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Your cup inventory is 0, you need to purchase cups before leaving the store.");
+                        Console.WriteLine("It looks like you don't have enough supplies to make lemonade. Please check your inventory and buy the necessary items to continue.");
                         Console.ReadKey();
                         Console.Clear();
                         StoreStart(player);
+                    }
+                    else
+                    {
+                        return;
                     }
                     break;
 
@@ -76,7 +75,11 @@ namespace lemonadestand
         {
             Console.WriteLine("How many lemons would you like to buy?");
             int lemon = int.Parse(Console.ReadLine());
-            return lemon;
+            if (!WithdrawLemonMoney(player, GetLemonExpense(lemon)))
+            {
+                return PlayerBuyLemon(player);
+            }
+                return lemon;
         }
         public double GetLemonExpense(int lemon)
         {
@@ -84,16 +87,17 @@ namespace lemonadestand
             expense = lemon * new Lemon().price;
             return expense;
         }
-        public void WithdrawLemonMoney(Player player, double expense)
+        public bool WithdrawLemonMoney(Player player, double expense)
         {
-            if (player.inventory.money > expense)
+            if (player.inventory.money >= expense)
             {
                 player.inventory.money -= expense;
+                return true;
             }
-            else if (player.inventory.money < expense)
+            else
             {
-                Console.WriteLine("You do not have enough money to buy that amount of lemons.");
-                PlayerBuyLemon(player);
+                Console.WriteLine("You do not have enough money to buy that amount of lemons.\n\n");
+                return false;
             }
         }
         public void AddLemonToInventory(Player player, int lemon)
@@ -107,6 +111,10 @@ namespace lemonadestand
         {
             Console.WriteLine("How much sugar would you like to buy?");
             int sugar = int.Parse(Console.ReadLine());
+            if(!WithdrawSugarMoney(player, GetSugarExpense(sugar)))
+            {
+                return PlayerBuySugar(player);
+            }
             return sugar;
         }
         public double GetSugarExpense(int sugar)
@@ -115,16 +123,17 @@ namespace lemonadestand
             expense = sugar * new Sugar().price;
             return expense;
         }
-        public void WithdrawSugarMoney(Player player, double expense)
+        public bool WithdrawSugarMoney(Player player, double expense)
         {
-            if (player.inventory.money > expense)
+            if (player.inventory.money >= expense)
             {
                 player.inventory.money -= expense;
+                return true;
             }
-            else if (player.inventory.money < expense)
+            else 
             {
-                Console.WriteLine("You do not have enough money to buy that amount of sugar.");
-                PlayerBuySugar(player);
+                Console.WriteLine("You do not have enough money to buy that amount of sugar.\n\n");
+                return false;
             }
         }
         public void AddSugarToInventory(Player player, int sugar)
@@ -138,6 +147,10 @@ namespace lemonadestand
         {
             Console.WriteLine("How much ice would you like to buy?");
             int ice = int.Parse(Console.ReadLine());
+            if(!WithdrawIceMoney(player, GetIceExpense(ice)))
+            {
+                return PlayerBuyIce(player);
+            }
             return ice;
         }
         public double GetIceExpense(int ice)
@@ -146,16 +159,17 @@ namespace lemonadestand
             expense = ice * new Ice().price;
             return expense;
         }
-        public void WithdrawIceMoney(Player player, double expense) //TODO
+        public bool WithdrawIceMoney(Player player, double expense) //TODO
         {
-            if (player.inventory.money > expense)
+            if (player.inventory.money >= expense)
             {
                 player.inventory.money -= expense;
+                return true;
             }
-            else if (player.inventory.money < expense)
+            else 
             {
-                Console.WriteLine("You do not have enough money to buy that amount of ice.");
-                PlayerBuyIce(player);
+                Console.WriteLine("You do not have enough money to buy that amount of ice.\n\n");
+                return false;
             }
         }
         public void AddIceToInventory(Player player, int ice)
@@ -169,6 +183,10 @@ namespace lemonadestand
         {
             Console.WriteLine("How many cups would you like to buy?");
             int cup = int.Parse(Console.ReadLine());
+            if (!WithdrawCupMoney(player, GetCupExpense(cup)))
+            {
+                return PlayerBuyCup(player);
+            }
             return cup;
         }
         public double GetCupExpense(int cup)
@@ -177,16 +195,17 @@ namespace lemonadestand
             expense = cup * new Cup().price;
             return expense;
         }
-        public void WithdrawCupMoney(Player player, double expense)
+        public bool WithdrawCupMoney(Player player, double expense)
         {
-            if (player.inventory.money > expense)
+            if (player.inventory.money >= expense)
             {
                 player.inventory.money -= expense;
+                return true;
             }
-            else if (player.inventory.money < expense)
+            else 
             {
-                Console.WriteLine("You do not have enough money to buy that amount of cups.");
-                PlayerBuyCup(player);
+                Console.WriteLine("You do not have enough money to buy that amount of cups.\n\n");
+                return false;
             }
         }
         public void AddCupToInventory(Player player, int cup)

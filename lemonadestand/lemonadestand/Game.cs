@@ -14,7 +14,6 @@ namespace lemonadestand
         public Store store;
         public Recipe recipe;
         public Random rnd;
-        public Demand demand;
         public Weather weather; 
         
        public Game()
@@ -26,8 +25,6 @@ namespace lemonadestand
             recipe = new Recipe();
             rnd = new Random();
             weather = new Weather();
-            demand = new Demand(recipe, weather);
-
         }
         public void RunGame()
         {

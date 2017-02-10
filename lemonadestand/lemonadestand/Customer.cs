@@ -8,8 +8,8 @@ namespace lemonadestand
 {
     public class Customer
     {
-        
         public double buyProbability;
+
         public Customer(Demand demand)
         {
             CustomerBuyProbability(demand);

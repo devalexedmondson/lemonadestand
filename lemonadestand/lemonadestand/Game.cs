@@ -43,25 +43,32 @@ namespace lemonadestand
             player.inventory.DisplayInventory();
             runDay.GetTotalCustomers(rnd);
             demand.GetCustomersBuying(recipe);
-            player.SellLemonade(demand);
+            player.SellLemonade(runDay);
             player.inventory.DisplayInventory();
             double dayEarning = runDay.CalculateDaysEarnings(player,recipe);
             double dayProfit = runDay.CalculateDayProfit(store);
-            double totalProfit = CalculateTotalProfit(dayProfit);
+            double runningProfit = CalculateDayOneProfit(dayProfit);
+            //double totalProfit = CalculateTotalProfit(dayProfit,runningProfit)
             runDay.DisplayDayProfit();
-            DisplayTotalProfit(totalProfit);
-            AddProfit(totalProfit);
+            DisplayTotalProfit(runningProfit);
+            AddProfit(runningProfit);
             player.CheckSpoilInventory();
             Console.Clear();
             EndOfDay();
             NewDay();
         }
-        public double CalculateTotalProfit(double dayProfit)
+        public double CalculateDayOneProfit(double dayProfit)
+        {
+            double dayOneProfit = dayProfit + 0;
+          
+           return dayOneProfit;
+        }
+        public double CalculateTotalProfit(double dayProfit, double runningProfit)
         {
             //TODO
-            double totalProfit = dayProfit + 5;
-          
-           return totalProfit;
+            double totalProfit = dayProfit + runningProfit;
+
+            return totalProfit;
         }
         public void DisplayTotalProfit(double totalProfit)
         {
@@ -102,11 +109,12 @@ namespace lemonadestand
                     player.inventory.DisplayInventory();
                     runDay.GetTotalCustomers(rnd);
                     demand.GetCustomersBuying(recipe);
-                    player.SellLemonade(demand);
+                    player.SellLemonade(runDay);
                     player.inventory.DisplayInventory();
                     double dayEarning = runDay.CalculateDaysEarnings(player, recipe);
                     double dayProfit = runDay.CalculateDayProfit(store);
-                    double totalProfit = CalculateTotalProfit(dayProfit);
+                    double runningProfit = CalculateDayOneProfit(dayProfit);
+                    double totalProfit = CalculateTotalProfit(dayProfit, runningProfit);
                     runDay.DisplayDayProfit();
                     DisplayTotalProfit(totalProfit);
                     AddProfit(totalProfit);

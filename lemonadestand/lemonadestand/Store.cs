@@ -146,7 +146,7 @@ namespace lemonadestand
             expense = ice * new Ice().price;
             return expense;
         }
-        public void WithdrawIceMoney(Player player, double expense)
+        public void WithdrawIceMoney(Player player, double expense) //TODO
         {
             if (player.inventory.money > expense)
             {

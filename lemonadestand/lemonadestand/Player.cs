@@ -15,30 +15,30 @@ namespace lemonadestand
         {
             inventory = new Inventory();
         }
-        public void SellLemonade(Demand demand) //TODO
+        public void SellLemonade(Day day) //TODO
         {//need dif loop or way to get customers to buy
-            if (demand.priceDemand == 3)
+            if (day.buyProbability >= 75)
             {
                 for (int i = 0; i < inventory.supplies[4].Count; i++)
                 {
                     inventory.supplies[4].RemoveAt(0);
                 }
             }
-            else if (demand.priceDemand == 2)
+            else if ((day.buyProbability <=74) || (day.buyProbability >= 50))
             {
                 for (int i = 0; i < inventory.supplies[4].Count * .75; i++)
                 {
                     inventory.supplies[4].RemoveAt(0);
                 }
             }
-            else if (demand.priceDemand == 1)
+            else if ((day.buyProbability <= 49) || (day.buyProbability >= 25))
             {
                 for (int i = 0; i < inventory.supplies[4].Count * .25; i++)
                 {
                     inventory.supplies[4].RemoveAt(0);
                 }
             }
-            else if (demand.priceDemand == 0)
+            else if (day.buyProbability <= 24)
             {
                 for (int i = 0; i < inventory.supplies[4].Count * 0; i++)
                 {

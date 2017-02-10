@@ -62,6 +62,7 @@ namespace lemonadestand
                     {
                         DisplayRecipe(lemon, sugar, ice, cup);
                         PickLemonadePrice();
+                        Console.Clear();
                         return;
                     }
                     else
@@ -74,6 +75,7 @@ namespace lemonadestand
                     break;
                 case "display":
                     DisplayRecipe(lemon,  sugar, ice, cup);
+                    Console.Clear();
                     RecipeStart(player);
                     break;
                 case "leave":
@@ -218,7 +220,6 @@ namespace lemonadestand
         {
             Console.WriteLine($"Your current recipe includes *(each number represents the amount of the item in each cup): \n Lemons: {lemon}  \n Sugar: {sugar} \nIce: {ice}\n Cups of Lemonade: {cup}\n");
             Console.ReadKey();
-            Console.Clear();
         }
     }
 }

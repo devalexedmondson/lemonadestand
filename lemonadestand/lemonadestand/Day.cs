@@ -19,7 +19,7 @@ namespace lemonadestand
         {
             day = 1;
             weather = new Weather();
-            customer = new List<Customer>(buyProbability);
+            customer = new List<Customer>();
         }
         public void GetWeather(Random rnd)
         {

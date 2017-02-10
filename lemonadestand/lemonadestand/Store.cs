@@ -26,16 +26,10 @@ namespace lemonadestand
                     int lemon = PlayerBuyLemon(player);
                     AddLemonToInventory(player, lemon);
                     int sugar = PlayerBuySugar(player);
-                    double sugarExpense = GetSugarExpense(sugar);
-                    WithdrawSugarMoney(player, sugarExpense);
                     AddSugarToInventory(player, sugar);
                     int ice = PlayerBuyIce(player);
-                    double iceExpense = GetIceExpense(ice);
-                    WithdrawIceMoney(player, iceExpense);
                     AddIceToInventory(player, ice);
                     int cup = PlayerBuyCup(player);
-                    double cupExpense = GetCupExpense(cup);
-                    WithdrawCupMoney(player, cupExpense);
                     AddCupToInventory(player, cup);
                     player.inventory.DisplayInventory();
                     GetPlayerTotalExpense(lemon * new Lemon().price, sugar * new Sugar().price, ice * new Ice().price, cup * new Cup().price);

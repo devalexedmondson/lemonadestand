@@ -77,7 +77,7 @@ namespace lemonadestand
         }
         public void EndOfDay()
         {
-            if (player.inventory.money < 0)
+            if (player.inventory.money <= 0)
             {
                 Console.WriteLine("You have no more money!");
                 Console.WriteLine("GAME OVER");

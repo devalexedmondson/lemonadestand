@@ -125,7 +125,7 @@ namespace lemonadestand
         }
         public void DisplayDayProfit()
         {
-            if (dayProfit < 0)
+            if (dayProfit <= 0)
             {
                 Console.WriteLine($"You lost money today! You lost ${dayProfit}.");
                 Console.ReadKey();

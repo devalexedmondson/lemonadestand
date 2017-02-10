@@ -9,47 +9,40 @@ namespace lemonadestand
     public class Player
     {
         public Inventory inventory;
-        public double soldInventory;
+        public int soldInventory;
 
         public Player()
         {
             inventory = new Inventory();
         }
-        public void SellLemonade(Day day) //TODO
-        {//need dif loop or way to get customers to buy
-            if (day.buyProbability >= 75)
+        public int SellLemonade(List<Customer> customer)
+        {
+             soldInventory = 0;
+            for (int i = 0; i < customer.Count; i++ )
             {
-                for (int i = 0; i < inventory.supplies[4].Count; i++)
+                if (customer[i].buyProbability >= 75)
                 {
+                    soldInventory++;
+                    inventory.supplies[4].RemoveAt(0);
+                }
+                else if ((customer[i].buyProbability <= 74) && (customer[i].buyProbability >= 50))
+                {
+                    soldInventory++;
+                    inventory.supplies[4].RemoveAt(0);
+                }
+                else if ((customer[i].buyProbability <= 49) && (customer[i].buyProbability >= 25))
+                {
+                    soldInventory++;
+                    inventory.supplies[4].RemoveAt(0);
+                }
+                else if (customer[i].buyProbability <= 24)
+                {
+                    soldInventory++;
                     inventory.supplies[4].RemoveAt(0);
                 }
             }
-            else if ((day.buyProbability <=74) || (day.buyProbability >= 50))
-            {
-                for (int i = 0; i < inventory.supplies[4].Count * .75; i++)
-                {
-                    inventory.supplies[4].RemoveAt(0);
-                }
-            }
-            else if ((day.buyProbability <= 49) || (day.buyProbability >= 25))
-            {
-                for (int i = 0; i < inventory.supplies[4].Count * .25; i++)
-                {
-                    inventory.supplies[4].RemoveAt(0);
-                }
-            }
-            else if (day.buyProbability <= 24)
-            {
-                for (int i = 0; i < inventory.supplies[4].Count * 0; i++)
-                {
-                    inventory.supplies[4].RemoveAt(0);
-                }
-            }
+            return soldInventory;
         }
-        //public void CalculateSoldLemonade(Player player) TODO
-        //{
-        //    player.inventory.supplies[4].Count - 5;
-        //}
         public void CheckSpoilInventory()
         {
             while (inventory.supplies[4].Count > 0)

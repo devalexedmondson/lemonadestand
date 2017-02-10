@@ -15,6 +15,7 @@ namespace lemonadestand
         public Recipe recipe;
         public Random rnd;
         public Demand demand;
+        public Weather weather; 
         
        public Game()
         {
@@ -24,8 +25,8 @@ namespace lemonadestand
             store = new Store();
             recipe = new Recipe();
             rnd = new Random();
-            demand = new Demand();
-
+            weather = new Weather();
+            demand = new Demand(recipe, weather);
 
         }
         public void RunGame()
@@ -41,9 +42,10 @@ namespace lemonadestand
             recipe.RecipeStart(player);
             Console.Clear();
             player.inventory.DisplayInventory();
-            runDay.GetTotalCustomers(rnd);
-            demand.GetCustomersBuying(recipe);
-            player.SellLemonade(runDay);
+            demand.GetPriceDemand(recipe);
+            demand.GetWeatherDemand(runDay.weather);
+            runDay.GetTotalCustomers(rnd,recipe);
+            player.SellLemonade(runDay.customer);
             player.inventory.DisplayInventory();
             double dayEarning = runDay.CalculateDaysEarnings(player,recipe);
             double dayProfit = runDay.CalculateDayProfit(store);
@@ -65,7 +67,6 @@ namespace lemonadestand
         }
         public double CalculateTotalProfit(double dayProfit, double runningProfit)
         {
-            //TODO
             double totalProfit = dayProfit + runningProfit;
 
             return totalProfit;
@@ -107,9 +108,9 @@ namespace lemonadestand
                     recipe.RecipeStart(player);
                     Console.Clear();
                     player.inventory.DisplayInventory();
-                    runDay.GetTotalCustomers(rnd);
-                    demand.GetCustomersBuying(recipe);
-                    player.SellLemonade(runDay);
+                    runDay.GetTotalCustomers(rnd, recipe);
+                    demand.GetPriceDemand(recipe);
+                    player.SellLemonade(runDay.customer);
                     player.inventory.DisplayInventory();
                     double dayEarning = runDay.CalculateDaysEarnings(player, recipe);
                     double dayProfit = runDay.CalculateDayProfit(store);

@@ -67,7 +67,7 @@ namespace lemonadestand
                     }
                     else
                     {
-                        Console.WriteLine("You havent made any lemonade yet, what are you ging to sell?");
+                        Console.WriteLine("You haven't made any lemonade yet, what are you ging to sell?");
                         Console.ReadKey();
                         Console.Clear();
                         RecipeStart(player);   
@@ -85,7 +85,7 @@ namespace lemonadestand
                     }
                     else
                     {
-                        Console.WriteLine("Your didnt enter a price for your lemonade! You must enter a price for your lemonade.");
+                        Console.WriteLine("Your didn't enter a price for your lemonade! You must enter a price for your lemonade.");
                         Console.ReadKey();
                         Console.Clear();
                         RecipeStart(player);

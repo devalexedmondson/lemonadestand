@@ -58,32 +58,5 @@ namespace lemonadestand
             Console.WriteLine($"Your current inventory:\n\n Money: ${money}\n Lemons: {supplies[0].Count}\n Sugar: {supplies[1].Count}\n Ice: {supplies[2].Count}\n Empty Cups: {supplies[3].Count}\n Cups of Lemonade: {supplies[4].Count}\n");
             Console.ReadKey();
         }
-        
-        //public void AddToWallet()
-        //{
-        //    if (/*what customer bought > money*/)
-        //    {
-        //        //money += what customer bought 
-        //    }
-        //    else
-        //    {
-        //        //do nothing 
-        //    }
-        //}
-        //public void AddToProfit()
-        //{
-        //    if (what customer bought > money)
-        //    {
-        //        what customer bought - total of supplies bought by player
-        //    }
-        //    else 
-        //    {
-        //       do nothing
-        //    }
-        //}
-        //public void DisplayProfit()
-        //{
-        //    Console.WriteLine($"Your total profit is {variable that is equals to AddTotalProfit}");
-        //}
     }
 }

@@ -51,7 +51,17 @@ namespace lemonadestand
                     break;
 
                 case "leave":
-                    
+                    if (player.inventory.supplies[3].Count > 0)
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Your cup inventory is 0, you need to purchase cups before leaving the store.");
+                        Console.ReadKey();
+                        Console.Clear();
+                        StoreStart(player);
+                    }
                     break;
 
                 default:

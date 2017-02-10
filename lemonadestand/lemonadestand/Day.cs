@@ -13,12 +13,13 @@ namespace lemonadestand
         public List<Customer> customer;
         public double dayEarning;
         public double dayProfit;
+        public int buyProbability;
 
         public Day()
         {
             day = 1;
             weather = new Weather();
-            customer = new List<Customer>();
+            customer = new List<Customer>(buyProbability);
         }
         public void GetWeather(Random rnd)
         {
@@ -34,7 +35,7 @@ namespace lemonadestand
         }
         public void DisplayDay()
         {
-            Console.WriteLine($"Today is Day {day}");
+            Console.WriteLine($"Today is Day {day}\n\n");
         }
         public void GetTotalCustomers(Random rnd)//customers that come out based on weather conditions
         {
@@ -111,15 +112,34 @@ namespace lemonadestand
                 }
             }
         }
+        public int CustomerBuyProbability(Demand demand)
+        {
+            Random rnd = new Random();
+            buyProbability = rnd.Next(70, 90) / demand.priceDemand / demand.weatherDemand;
+            return buyProbability;
+        }
         public double CalculateDaysEarnings(Player player, Recipe recipe)
         {//price of lemonade * amount bought by customer
             dayEarning = recipe.lemonadePrice * player.soldInventory;
             return dayEarning;
         }
-        public double CalculateDayProfit(double dayEarning, Store store)
+        public double CalculateDayProfit(Store store)
         {
             dayProfit = dayEarning - store.totalExpense;
             return dayProfit;
+        }
+        public void DisplayDayProfit()
+        {
+            if (dayProfit < 0)
+            {
+                Console.WriteLine($"You lost money today! You lost ${dayProfit}.");
+                Console.ReadKey();
+            }
+            else
+            {
+                Console.WriteLine($"You made ${dayProfit} today!");
+                Console.ReadKey();
+            }
         }
     }
 }

@@ -58,15 +58,36 @@ namespace lemonadestand
                     RecipeStart(player);
                     break;
                 case "set":
-                    DisplayRecipe(lemon, sugar, ice, cup);
-                    PickLemonadePrice();
-                    return;
+                    if (player.inventory.supplies[4].Count > 0)
+                    {
+                        DisplayRecipe(lemon, sugar, ice, cup);
+                        PickLemonadePrice();
+                        return;
+                    }
+                    else
+                    {
+                        Console.WriteLine("You havent made any lemonade yet, what are you ging to sell?");
+                        Console.ReadKey();
+                        Console.Clear();
+                        RecipeStart(player);   
+                    }
+                    break;
                 case "display":
                     DisplayRecipe(lemon,  sugar, ice, cup);
                     RecipeStart(player);
                     break;
                 case "leave":
-
+                    if (lemonadePrice > 0)
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Your didnt enter a price for your lemonade! You must enter a price for your lemonade.");
+                        Console.ReadKey();
+                        Console.Clear();
+                        RecipeStart(player);
+                    }
                     break;
 
                 default:
@@ -83,7 +104,7 @@ namespace lemonadestand
             lemon = int.Parse(Console.ReadLine());
             return lemon;
         }
-        public bool CheckLemonInventory(Player player, int lemon)
+        public bool CheckLemonInventory(Player player, int lemon)// TODO
         {//program will catch the user the first time and no matter what number is entered the second time, will throw error. 
             if (player.inventory.supplies[0].Count < lemon) 
             {

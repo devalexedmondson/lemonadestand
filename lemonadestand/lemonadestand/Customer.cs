@@ -9,11 +9,9 @@ namespace lemonadestand
     public class Customer
     {
         public Demand demand;
-        public int purchasedInventory;
-
         public Customer()
         {
-           
+            
         }
         
     }

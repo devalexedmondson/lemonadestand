@@ -46,27 +46,53 @@ namespace lemonadestand
             player.SellLemonade(demand);
             player.inventory.DisplayInventory();
             double dayEarning = runDay.CalculateDaysEarnings(player,recipe);
-            double dayProfit = runDay.CalculateDayProfit(dayEarning,store);
+            double dayProfit = runDay.CalculateDayProfit(store);
             double totalProfit = CalculateTotalProfit(dayProfit);
+            runDay.DisplayDayProfit();
             DisplayTotalProfit(totalProfit);
+            AddProfit(totalProfit);
             player.CheckSpoilInventory();
+            Console.Clear();
+            EndOfDay();
             NewDay();
         }
         public double CalculateTotalProfit(double dayProfit)
         {
-            double totalprofit = dayProfit += ;
-            return totalprofit;
+            //TODO
+            double totalProfit = dayProfit + 5;
+          
+           return totalProfit;
         }
         public void DisplayTotalProfit(double totalProfit)
         {
             Console.WriteLine($"Your total profit is: ${totalProfit}!");
+            Console.ReadKey();
+        }
+        public void AddProfit(double totalProfit)
+        {
+            player.inventory.money = totalProfit + player.inventory.money;
+        }
+        public void EndOfDay()
+        {
+            if (player.inventory.money < 0)
+            {
+                Console.WriteLine("You have no more money!");
+                Console.WriteLine("GAME OVER");
+                Console.ReadKey();
+                Environment.Exit(0);
+            }
+            else
+            {
+                runDay.day++;
+            }
         }
         public void NewDay()
         {
-            for (int i = 1; i < 7; i++)
+            for (int i = 0; i < 8; i++)
             {
                 if (runDay.day <= 7)
                 {
+                    runDay.DisplayDay();
                     store.StoreStart(player);
                     Console.Clear();
                     runDay.GetWeather(rnd);
@@ -79,18 +105,22 @@ namespace lemonadestand
                     player.SellLemonade(demand);
                     player.inventory.DisplayInventory();
                     double dayEarning = runDay.CalculateDaysEarnings(player, recipe);
-                    double dayProfit = runDay.CalculateDayProfit(dayEarning, store);
+                    double dayProfit = runDay.CalculateDayProfit(store);
                     double totalProfit = CalculateTotalProfit(dayProfit);
+                    runDay.DisplayDayProfit();
                     DisplayTotalProfit(totalProfit);
+                    AddProfit(totalProfit);
                     player.CheckSpoilInventory();
+                    Console.Clear();
+                    EndOfDay();
                     NewDay();
                 }
-                else if (i > 7)
+                else 
                 {
-                    Console.WriteLine("Congrats on making it through a whole week with your lemonade stand!");
+                    Console.WriteLine("Congrats on making it through a whole week with your lemonade stand!\n\n Game Over :D");
                     Console.ReadKey();
                     player.inventory.DisplayInventory();
-                    //add option to play again
+                    return;
                 }
             }
         }

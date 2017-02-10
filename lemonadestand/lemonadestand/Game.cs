@@ -42,8 +42,6 @@ namespace lemonadestand
             recipe.RecipeStart(player);
             Console.Clear();
             player.inventory.DisplayInventory();
-            demand.GetPriceDemand(recipe);
-            demand.GetWeatherDemand(runDay.weather);
             runDay.GetTotalCustomers(rnd,recipe);
             player.SellLemonade(runDay.customer);
             player.inventory.DisplayInventory();
@@ -109,7 +107,6 @@ namespace lemonadestand
                     Console.Clear();
                     player.inventory.DisplayInventory();
                     runDay.GetTotalCustomers(rnd, recipe);
-                    demand.GetPriceDemand(recipe);
                     player.SellLemonade(runDay.customer);
                     player.inventory.DisplayInventory();
                     double dayEarning = runDay.CalculateDaysEarnings(player, recipe);
@@ -117,8 +114,8 @@ namespace lemonadestand
                     double runningProfit = CalculateDayOneProfit(dayProfit);
                     double totalProfit = CalculateTotalProfit(dayProfit, runningProfit);
                     runDay.DisplayDayProfit();
-                    DisplayTotalProfit(totalProfit);
-                    AddProfit(totalProfit);
+                    DisplayTotalProfit(runningProfit);
+                    AddProfit(runningProfit);
                     player.CheckSpoilInventory();
                     Console.Clear();
                     EndOfDay();

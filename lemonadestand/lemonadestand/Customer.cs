@@ -17,7 +17,7 @@ namespace lemonadestand
         public double CustomerBuyProbability(Demand demand)
         {
             Random rnd = new Random();
-            buyProbability = rnd.Next(70, 90) / demand.priceDemand / demand.weatherDemand;
+            buyProbability = rnd.Next(50, 90) / demand.priceDemand / demand.weatherDemand;
             return buyProbability;
         }
     }
